@@ -20,10 +20,31 @@ public class MainClass {
         SignInPage signInPage = new SignInPage(driver);
         signInPage.signInWithCreds("x36607@nwytg.net","Eamw5768");
 
-        WeatherPage weatherPage = new WeatherPage (driver);
-        /*weatherPage.clickCookieOK();
-        weatherPage.clickMoreDetails();*/
-        weatherPage.clickLogout();
+        Weather weather = new Weather(driver);
+        MyFields myFields = new MyFields(driver);
+        MyFieldsDetails myFieldsDetails = new MyFieldsDetails(driver);
+        WeatherDetails weatherDetails = new WeatherDetails(driver);
+        DiseaseManagement diseaseManagement = new DiseaseManagement(driver);
+        DiseaseManagementDetails diseaseManagementDetails = new DiseaseManagementDetails(driver);
+
+        weather.clickLogout();
+        signUpPopUpPage.clickX();
+        weather.clickCookieOK();
+
+        myFields.clickMyFields();
+        myFields.clickMoreDetails();
+        myFieldsDetails.clickCropOverview();
+        myFieldsDetails.clickFarmDetails();
+        myFieldsDetails.clickOperations();
+        myFieldsDetails.clickImportHistory();
+        weather.clickWeather();
+        weather.clickMoreDetails();
+        weatherDetails.clickSprayGuide();
+        weatherDetails.clickWeatherAnalysis();
+        diseaseManagement.clickDiseaseManagement();
+        diseaseManagement.clickMoreDetails();
+        diseaseManagementDetails.clickDiseaseOverview();
+        diseaseManagementDetails.clickOperations();
 
         driver.quit(); //end work of driver
     }

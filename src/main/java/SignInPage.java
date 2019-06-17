@@ -28,8 +28,8 @@ public class SignInPage {
         driver.findElement(signInButton).click();
         return new SignInPage(driver);
     }
-    public WeatherPage clickSignIn() {
+    public Weather clickSignIn() {
         driver.findElement(signInButton).click();
-        return new WeatherPage(driver);
+        return new Weather(driver);
     }
 }

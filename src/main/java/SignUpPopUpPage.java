@@ -25,8 +25,13 @@ public class SignUpPopUpPage {
         return new RegisterPage(driver);
     }
 
-    public WeatherPage clickTryDemo() {
+    public Weather clickTryDemo() {
         driver.findElement(tryDemoButton).click();
-        return new WeatherPage(driver);
+        return new Weather(driver);
+    }
+
+    public Weather clickX() {
+        driver.findElement(XButton).click();
+        return new Weather(driver);
     }
 }
