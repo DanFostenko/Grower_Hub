@@ -14,21 +14,23 @@ public class MainClass {
         String httpcreds = "syngenta:c0j4ZvP8KvIn";
         driver.get("https://"+httpcreds+"@"+site);
 
-        SignUpPopUpPage signUpPopUpPage = new SignUpPopUpPage(driver);
-        signUpPopUpPage.clickSignIn();
-
-        SignInPage signInPage = new SignInPage(driver);
-        signInPage.signInWithCreds("x36607@nwytg.net","Eamw5768");
-
+        SignUpPopUp signUpPopUp = new SignUpPopUp(driver);
+        SignIn signIn = new SignIn(driver);
         Weather weather = new Weather(driver);
         MyFields myFields = new MyFields(driver);
         MyFieldsDetails myFieldsDetails = new MyFieldsDetails(driver);
         WeatherDetails weatherDetails = new WeatherDetails(driver);
         DiseaseManagement diseaseManagement = new DiseaseManagement(driver);
         DiseaseManagementDetails diseaseManagementDetails = new DiseaseManagementDetails(driver);
+        NDVI nDVI = new NDVI(driver);
+        NDVIDetails nDVIDetails = new NDVIDetails(driver);
+        VarietySelection varietySelection = new VarietySelection(driver);
+        MyServices myServices = new MyServices(driver);
 
+        signUpPopUp.clickSignIn();
+        signIn.signInWithCreds("x36607@nwytg.net","Eamw5768");
         weather.clickLogout();
-        signUpPopUpPage.clickX();
+        signUpPopUp.clickX();
         weather.clickCookieOK();
 
         myFields.clickMyFields();
@@ -45,6 +47,13 @@ public class MainClass {
         diseaseManagement.clickMoreDetails();
         diseaseManagementDetails.clickDiseaseOverview();
         diseaseManagementDetails.clickOperations();
+        nDVI.clickNDVI();
+        nDVI.clickMoreDetails();
+        varietySelection.clickVarietySelection();
+        varietySelection.clickWizard();
+        varietySelection.clickVarietyAZ();
+        myServices.clickMyServices();
+        myServices.clickCategories();
 
         driver.quit(); //end work of driver
     }

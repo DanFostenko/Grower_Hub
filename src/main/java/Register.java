@@ -1,9 +1,9 @@
 import org.openqa.selenium.WebDriver;
 
-public class RegisterPage {
+public class Register {
     WebDriver driver;
 
-    public RegisterPage(WebDriver driver) {  //class constructor
+    public Register(WebDriver driver) {  //class constructor
         this.driver = driver;
     }
 }

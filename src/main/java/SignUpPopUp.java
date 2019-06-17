@@ -1,28 +1,28 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class SignUpPopUpPage {
+public class SignUpPopUp {
     private WebDriver driver;
 
-    public SignUpPopUpPage(WebDriver driver) {  //class constructor
+    public SignUpPopUp(WebDriver driver) {  //class constructor
         this.driver = driver;
     }
 
     //Elements on page
     public By signInButton = By.xpath("//span[text()='Sign in']"); //locator for 'Sign in' button
-    private By registerButton = By.xpath("//span[text()='RegisterPage For Free']"); //locator for 'RegisterPage For Free' button
+    private By registerButton = By.xpath("//span[text()='Register For Free']"); //locator for 'Register For Free' button
     private By tryDemoButton = By.xpath("//span[text()='Try Our Demo Farm']");  //locator for 'Try Our Demo Farm' button
     private By XButton = By.xpath(".//*[@data-cy='onboarding-close']");  //locator for 'X' button
 
     //Methods
-    public SignInPage clickSignIn() {
+    public SignIn clickSignIn() {
         driver.findElement(signInButton).click();
-        return new SignInPage(driver);
+        return new SignIn(driver);
     }
 
-    public RegisterPage clickRegister() {
+    public Register clickRegister() {
         driver.findElement(registerButton).click();
-        return new RegisterPage(driver);
+        return new Register(driver);
     }
 
     public Weather clickTryDemo() {
