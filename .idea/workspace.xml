@@ -3,17 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="625c6f5a-0cbc-4e6a-ac15-510ac4ca2846" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiseaseManagementDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiseaseManagementDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyFields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyFields.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SignIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VarietySelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VarietySelection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DiseaseManagementDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DiseaseManagementDetails.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MainClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainClass.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Register.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SignIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VarietySelection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VarietySelection.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,8 +24,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/MainClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" column="31" lean-forward="true" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+            <state relative-caret-position="180">
+              <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,6 +50,8 @@
       <find>signinw</find>
       <find>SignIn</find>
       <find>signinwith</find>
+      <find>class</find>
+      <find>driver.get</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -87,9 +82,9 @@
         <option value="$PROJECT_DIR$/src/main/java/VarietySelection.java" />
         <option value="$PROJECT_DIR$/src/main/java/SignUpPopUp.java" />
         <option value="$PROJECT_DIR$/src/main/java/SignIn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Register.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyFields.java" />
         <option value="$PROJECT_DIR$/src/main/java/MainClass.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Register.java" />
       </list>
     </option>
   </component>
@@ -101,10 +96,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-116" />
-    <option name="y" value="-1099" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-114" />
+    <option name="y" value="-1103" />
+    <option name="width" value="1932" />
+    <option name="height" value="1045" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -115,7 +110,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -145,6 +139,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -197,7 +192,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-1088" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2739872" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2771855" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -358,16 +353,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Register.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="48" column="51" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyFields.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -388,7 +373,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SignIn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="374">
           <caret line="25" column="30" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -398,10 +383,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-425">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#155#156#0" expanded="true" />
+            <element signature="e#212#213#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="31" lean-forward="true" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+        <state relative-caret-position="180">
+          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

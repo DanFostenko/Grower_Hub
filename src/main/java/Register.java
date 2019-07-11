@@ -1,5 +1,8 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class Register {
     WebDriver driver;
@@ -7,6 +10,12 @@ public class Register {
     public Register(WebDriver driver) {  //class constructor
         this.driver = driver;
     }
+
+    //Elements on 10Minutes
+    private By emailReadField = By.xpath("//input[@class='mail-address-address']");
+    private By prolongButton = By.xpath("//a[@id='resetSessionLifeButton']");
+    private By messageList = By.xpath("//div[@id='messagesList']");
+    private By verificationLink = By.xpath("//a[starts-with(@href, 'https://growerhub')]");
 
     //Elements on Sign Up -> 1. My Profile step
     private By nameField = By.xpath(".//*[@placeholder='Name']");
@@ -20,7 +29,7 @@ public class Register {
     private By addressField = By.xpath(".//*[@placeholder='First line of address']");
     private By cityField = By.xpath(".//*[@placeholder='Town / City']");
     private By countryDropDown = By.xpath("//label[text()='Country']/../div/div/div"); //    ("//div[@class='jss875 jss878 jss770 jss755']")
-    private By countryElement = By.xpath("//li[text()='United Kingdom']"); // private By countryElement = By.xpath("//li[text()='%s'], country");   ("//li[text()='%s'], United Kingdom")
+    private By countryElement = By.xpath("//li[text()='United Kingdom']");  //("//li[text()='%s'], United Kingdom")
     private By postcodeField = By.xpath(".//*[@placeholder='Postcode']");
 
     //Elements on Sign Up -> 3. Terms Of Service
@@ -29,11 +38,21 @@ public class Register {
 
     //Methods
     public Register fillInMyProfile(String name, String telephone, String email, String password) {
+        String mainTab = driver.getWindowHandle();  //remember the name of main browser tab
+        ((JavascriptExecutor)driver).executeScript("window.open('https://10minutemail.com/10MinuteMail/index.html','_blank');");    //driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t")
+        for (String tab : driver.getWindowHandles()) { //switch to the active tab
+            driver.switchTo().window(tab);
+        }
+        email = driver.findElement(emailReadField).getAttribute("value");
+        ((JavascriptExecutor)driver).executeScript("window.close");
+
+        driver.switchTo().window(mainTab);
         driver.findElement(nameField).sendKeys(name);
         driver.findElement(telephoneField).sendKeys(telephone);
         driver.findElement(emailField).sendKeys(email);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(continueButton).click();
+        WebDriverWait wait = (new WebDriverWait(driver, 5));    //явное - ожидание элементов до их появления, которое используется 1 раз
         return new Register(driver);
     }
     public Register fillInMyFarm(String farmName, String address, String city, String country, String postcode) {

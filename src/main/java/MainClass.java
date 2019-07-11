@@ -34,9 +34,10 @@ public class MainClass {
         weather.clickLogout();*/
 
         //registration
-        //signUpPopUp.clickRegister();
-        //register.fillInMyProfile("Bogdan Fostenko","441234567898","b3843956@urhen.com","Eamw5768");
-        signUpPopUp.clickSignIn(); //delete after email obtained correctly
+        signUpPopUp.clickRegister();
+        register.fillInMyProfile("Bogdan Fostenko","441234567898","","Eamw5768");
+
+        signUpPopUp.clickSignIn(); //to be delete after email obtained correctly w/o spike
         signIn.signInWithCreds("b3843956@urhen.com","Eamw5768");
         register.fillInMyFarm("Bogdan's Farm","CPC4, Capital Park, Fulbourn, Cambridge CB21 5XE","Cambridge","United Kingdom","CB21 5XE");
         signUpPopUp.clickX();
