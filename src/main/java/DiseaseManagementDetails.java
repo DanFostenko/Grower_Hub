@@ -14,7 +14,5 @@ public class DiseaseManagementDetails {
     public void clickDiseaseOverview() {
         driver.findElement(diseaseOverview).click();
     }
-    public void clickOperations() {
-        driver.findElement(operations).click();
-    }
+
 }

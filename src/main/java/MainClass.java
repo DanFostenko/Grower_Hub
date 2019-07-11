@@ -16,6 +16,7 @@ public class MainClass {
 
         SignUpPopUp signUpPopUp = new SignUpPopUp(driver);
         SignIn signIn = new SignIn(driver);
+        Register register = new Register(driver);
         Weather weather = new Weather(driver);
         MyFields myFields = new MyFields(driver);
         MyFieldsDetails myFieldsDetails = new MyFieldsDetails(driver);
@@ -27,13 +28,24 @@ public class MainClass {
         VarietySelection varietySelection = new VarietySelection(driver);
         MyServices myServices = new MyServices(driver);
 
-        signUpPopUp.clickSignIn();
+        //log in - log out
+        /*signUpPopUp.clickSignIn();
         signIn.signInWithCreds("x36607@nwytg.net","Eamw5768");
-        weather.clickLogout();
-        signUpPopUp.clickX();
-        weather.clickCookieOK();
+        weather.clickLogout();*/
 
+        //registration
+        //signUpPopUp.clickRegister();
+        //register.fillInMyProfile("Bogdan Fostenko","441234567898","b3843956@urhen.com","Eamw5768");
+        signUpPopUp.clickSignIn(); //delete after email obtained correctly
+        signIn.signInWithCreds("b3843956@urhen.com","Eamw5768");
+        register.fillInMyFarm("Bogdan's Farm","CPC4, Capital Park, Fulbourn, Cambridge CB21 5XE","Cambridge","United Kingdom","CB21 5XE");
+        signUpPopUp.clickX();
+
+        //go through the views
+        weather.clickCookieOK();
         myFields.clickMyFields();
+        myFields.clickFarm();
+        myFields.clickSeason();
         myFields.clickMoreDetails();
         myFieldsDetails.clickCropOverview();
         myFieldsDetails.clickFarmDetails();
@@ -46,7 +58,6 @@ public class MainClass {
         diseaseManagement.clickDiseaseManagement();
         diseaseManagement.clickMoreDetails();
         diseaseManagementDetails.clickDiseaseOverview();
-        diseaseManagementDetails.clickOperations();
         nDVI.clickNDVI();
         nDVI.clickMoreDetails();
         varietySelection.clickVarietySelection();

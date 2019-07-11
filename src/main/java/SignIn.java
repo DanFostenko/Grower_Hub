@@ -9,17 +9,17 @@ public class SignIn {
     }
 
     //Elements on page
-    private By EmailField = By.xpath(".//*[@placeholder='Email Address']");
-    private By PasswordField = By.xpath(".//*[@placeholder='Password *']");
+    private By emailField = By.xpath(".//*[@placeholder='Email Address']");
+    private By passwordField = By.xpath(".//*[@placeholder='Password *']");
     private By signInButton = By.xpath("//button/span[text()='Sign in']");
 
     //Methods
     public SignIn typeEmail(String email) {
-        driver.findElement(EmailField).sendKeys(email);
+        driver.findElement(emailField).sendKeys(email);
         return this;
     }
     public SignIn typePassword(String password) {
-        driver.findElement(PasswordField).sendKeys(password);
+        driver.findElement(passwordField).sendKeys(password);
         return this;
     }
     public SignIn signInWithCreds(String email, String password) {

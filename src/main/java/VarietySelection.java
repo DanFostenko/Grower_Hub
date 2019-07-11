@@ -8,17 +8,16 @@ public class VarietySelection {
         this.driver = driver;
     }
     private By varietySelection = By.xpath("//*[@title='Variety Selection']");  //locator for 'Variety Selection' button
+    private By wizard = By.xpath("//span[text()='VARIETY SELECTION']");  //locator for 'VARIETY SELECTION' button
     private By varietyAZ = By.xpath("//span[text()='Varieties A to Z']");  //locator for 'Varieties A to Z' tab
-    private By wizard = By.xpath("//span[text()='Lets get started']");  //locator for 'Lets get started' button
 
     public void clickVarietySelection() {
         driver.findElement(varietySelection).click();
     }
-    public void clickVarietyAZ() {
-        driver.findElement(varietyAZ).click();
-    }
     public void clickWizard() {
         driver.findElement(wizard).click();
     }
-
+    public void clickVarietyAZ() {
+        driver.findElement(varietyAZ).click();
+    }
 }
