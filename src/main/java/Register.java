@@ -12,10 +12,11 @@ public class Register {
     }
 
     //Elements on 10Minutes
-    private By emailReadField = By.xpath("//input[@class='mail-address-address']");
-    private By prolongButton = By.xpath("//a[@id='resetSessionLifeButton']");
-    private By messageList = By.xpath("//div[@id='messagesList']");
-    private By verificationLink = By.xpath("//a[starts-with(@href, 'https://growerhub')]");
+    private By emailReadField = By.id("mailAddress");
+    private By prolongButton = By.id("resetSessionLifeButton");
+    private By messageList = By.id("messagesList");
+    private By verificationLink = By.xpath("//td[@role='presentation']");
+    //private By verificationLink = By.xpath("//a[starts-with(@href, 'https://growerhub')]");
 
     //Elements on Sign Up -> 1. My Profile step
     private By nameField = By.xpath(".//*[@placeholder='Name']");
@@ -37,23 +38,35 @@ public class Register {
     private By signUpButton = By.xpath("//button/span[text()='Sign up']");
 
     //Methods
-    public Register fillInMyProfile(String name, String telephone, String email, String password) {
+    public String fillInMyProfile(String name, String telephone, String password) {
         String mainTab = driver.getWindowHandle();  //remember the name of main browser tab
         ((JavascriptExecutor)driver).executeScript("window.open('https://10minutemail.com/10MinuteMail/index.html','_blank');");    //driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t")
         for (String tab : driver.getWindowHandles()) { //switch to the active tab
             driver.switchTo().window(tab);
         }
-        email = driver.findElement(emailReadField).getAttribute("value");
-        ((JavascriptExecutor)driver).executeScript("window.close");
-
+        String secondaryTab = driver.getWindowHandle();  //remember the name of secondary browser tab
+        String email = driver.findElement(emailReadField).getAttribute("value");
+        System.out.println("Registration email is: " + email);
+        driver.findElement(prolongButton).click();
         driver.switchTo().window(mainTab);
         driver.findElement(nameField).sendKeys(name);
         driver.findElement(telephoneField).sendKeys(telephone);
         driver.findElement(emailField).sendKeys(email);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(continueButton).click();
-        WebDriverWait wait = (new WebDriverWait(driver, 5));    //явное - ожидание элементов до их появления, которое используется 1 раз
-        return new Register(driver);
+        for (String tab : driver.getWindowHandles()) { //switch to the active tab
+            driver.switchTo().window(tab);
+        }
+        //WebDriverWait wait = (new WebDriverWait(driver, 15));    //явное - ожидание элементов до их появления, которое используется 1 раз
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,500)");
+        driver.findElement(messageList).click();
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,1000)");
+        String link = driver.findElement(verificationLink).getAttribute("href");
+        driver.get(link);
+
+        ((JavascriptExecutor)driver).executeScript("window.close");
+        return email;
+        //return new Register(email);
     }
     public Register fillInMyFarm(String farmName, String address, String city, String country, String postcode) {
         driver.findElement(farmNameField).sendKeys(farmName);
