@@ -7,7 +7,7 @@ public class MainClass {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\DanFo\\IdeaProjects\\growerhubtest\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS); //waiting for element appearance
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //waiting for element appearance
         driver.manage().window().maximize(); //maximize browser window
 
         String site = "test.growerhub.io";  //dev.growerhub.io //growerhub.io

@@ -1,8 +1,6 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.JavascriptExecutor;
 
 public class Register {
     WebDriver driver;
@@ -12,11 +10,14 @@ public class Register {
     }
 
     //Elements on 10Minutes
-    private By emailReadField = By.id("mailAddress");
-    private By prolongButton = By.id("resetSessionLifeButton");
-    private By messageList = By.id("messagesList");
-    private By verificationLink = By.xpath("//td[@role='presentation']");
-    //private By verificationLink = By.xpath("//a[starts-with(@href, 'https://growerhub')]");
+    private By emailReadField = By.xpath("//span[@id='email']");
+    private By prolongButton = By.xpath("//a[text()='+10 min']");
+    private By messageList = By.xpath("//td[text()='Verify your email']");
+    //private By verificationLink = By.xpath("//td[@role='presentation']");
+    //private By verificationLink = By.xpath("//td/a[starts-with(@href, 'https://growerhub')]");
+    //private By verificationLink = By.partialLinkText("VERIFY YOUR ACCOUNT");
+    private By verificationLink = By.xpath("//a[contains(text(), 'VERIFY YOUR ACCOUNT')]");
+    //private By verificationLink = By.xpath("/html/body/div/div[5]/table/tbody/tr/td/div/table/tbody/tr/td/table/tbody/tr/td/a");
 
     //Elements on Sign Up -> 1. My Profile step
     private By nameField = By.xpath(".//*[@placeholder='Name']");
@@ -29,7 +30,7 @@ public class Register {
     private By farmNameField = By.xpath(".//*[@placeholder='Farm Name']");
     private By addressField = By.xpath(".//*[@placeholder='First line of address']");
     private By cityField = By.xpath(".//*[@placeholder='Town / City']");
-    private By countryDropDown = By.xpath("//label[text()='Country']/../div/div/div"); //    ("//div[@class='jss875 jss878 jss770 jss755']")
+    private By countryDropDown = By.xpath("//label[text()='Country']/../div/div/div");  // ("//div[@class='jss875 jss878 jss770 jss755']")
     private By countryElement = By.xpath("//li[text()='United Kingdom']");  //("//li[text()='%s'], United Kingdom")
     private By postcodeField = By.xpath(".//*[@placeholder='Postcode']");
 
@@ -40,13 +41,13 @@ public class Register {
     //Methods
     public String fillInMyProfile(String name, String telephone, String password) {
         String mainTab = driver.getWindowHandle();  //remember the name of main browser tab
-        ((JavascriptExecutor)driver).executeScript("window.open('https://10minutemail.com/10MinuteMail/index.html','_blank');");    //driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t")
+        ((JavascriptExecutor)driver).executeScript("window.open('https://www.minuteinbox.com','_blank');");    //driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t")
         for (String tab : driver.getWindowHandles()) { //switch to the active tab
             driver.switchTo().window(tab);
         }
         String secondaryTab = driver.getWindowHandle();  //remember the name of secondary browser tab
-        String email = driver.findElement(emailReadField).getAttribute("value");
-        System.out.println("Registration email is: " + email);
+        String email = driver.findElement(emailReadField).getText();
+        System.out.println("Registration email: " + email);
         driver.findElement(prolongButton).click();
         driver.switchTo().window(mainTab);
         driver.findElement(nameField).sendKeys(name);
@@ -57,12 +58,18 @@ public class Register {
         for (String tab : driver.getWindowHandles()) { //switch to the active tab
             driver.switchTo().window(tab);
         }
-        //WebDriverWait wait = (new WebDriverWait(driver, 15));    //явное - ожидание элементов до их появления, которое используется 1 раз
-        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,500)");
         driver.findElement(messageList).click();
-        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,1000)");
-        String link = driver.findElement(verificationLink).getAttribute("href");
-        driver.get(link);
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,500)");
+
+        //driver.switchTo().frame("iframeMail");
+        //driver.findElement(By.partialLinkText("VERIFY YOUR ACCOUNT")).submit();
+
+        /*WebDriverWait wait = new WebDriverWait(driver, 100);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(verificationLink));*/
+
+        driver.findElement(verificationLink).click();
+        /*String link = driver.findElement(verificationLink).getAttribute("href");
+        driver.get(link);*/
 
         ((JavascriptExecutor)driver).executeScript("window.close");
         return email;
