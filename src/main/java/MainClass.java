@@ -37,8 +37,6 @@ public class MainClass {
         signUpPopUp.clickRegister();
         String email =  register.fillInMyProfile("Bogdan Fostenko","441234567898","Eamw5768");
 
-        signUpPopUp.clickSignIn();  //to be delete after email obtained correctly w/o spike
-
         signIn.signInWithCreds(email,"Eamw5768");
         register.fillInMyFarm("Bogdan's Farm","CPC4, Capital Park, Fulbourn, Cambridge CB21 5XE","Cambridge","United Kingdom","CB21 5XE");
         signUpPopUp.clickX();

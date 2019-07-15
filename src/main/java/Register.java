@@ -1,6 +1,4 @@
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Register {
     WebDriver driver;
@@ -13,10 +11,10 @@ public class Register {
     private By emailReadField = By.xpath("//span[@id='email']");
     private By prolongButton = By.xpath("//a[text()='+10 min']");
     private By messageList = By.xpath("//td[text()='Verify your email']");
+    private By verificationLink = By.xpath("//a[contains(text(), 'VERIFY YOUR ACCOUNT')]");
     //private By verificationLink = By.xpath("//td[@role='presentation']");
     //private By verificationLink = By.xpath("//td/a[starts-with(@href, 'https://growerhub')]");
     //private By verificationLink = By.partialLinkText("VERIFY YOUR ACCOUNT");
-    private By verificationLink = By.xpath("//a[contains(text(), 'VERIFY YOUR ACCOUNT')]");
     //private By verificationLink = By.xpath("/html/body/div/div[5]/table/tbody/tr/td/div/table/tbody/tr/td/table/tbody/tr/td/a");
 
     //Elements on Sign Up -> 1. My Profile step
@@ -59,21 +57,19 @@ public class Register {
             driver.switchTo().window(tab);
         }
         driver.findElement(messageList).click();
-        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,500)");
-
-        //driver.switchTo().frame("iframeMail");
-        //driver.findElement(By.partialLinkText("VERIFY YOUR ACCOUNT")).submit();
 
         /*WebDriverWait wait = new WebDriverWait(driver, 100);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(verificationLink));*/
-
-        driver.findElement(verificationLink).click();
-        /*String link = driver.findElement(verificationLink).getAttribute("href");
-        driver.get(link);*/
-
-        ((JavascriptExecutor)driver).executeScript("window.close");
+        driver.switchTo().frame("iframeMail").findElement(verificationLink).click();
+        driver.close();
+        for (String tab : driver.getWindowHandles()) { //switch to the active tab
+            driver.switchTo().window(tab);
+        }
+        driver.close();
+        for (String tab : driver.getWindowHandles()) { //switch to the active tab
+            driver.switchTo().window(tab);
+        }
         return email;
-        //return new Register(email);
     }
     public Register fillInMyFarm(String farmName, String address, String city, String country, String postcode) {
         driver.findElement(farmNameField).sendKeys(farmName);
