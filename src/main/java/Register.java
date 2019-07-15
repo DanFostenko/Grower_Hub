@@ -1,4 +1,7 @@
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Register {
     WebDriver driver;
@@ -35,6 +38,7 @@ public class Register {
     //Elements on Sign Up -> 3. Terms Of Service
     private By acceptCheckbox = By.xpath("//input[@name='registerTerms']");
     private By signUpButton = By.xpath("//button/span[text()='Sign up']");
+    private By finishButton = By.xpath("//span[text()='Finish']");  //locator for 'X' button
 
     //Methods
     public String fillInMyProfile(String name, String telephone, String password) {
@@ -43,7 +47,6 @@ public class Register {
         for (String tab : driver.getWindowHandles()) { //switch to the active tab
             driver.switchTo().window(tab);
         }
-        String secondaryTab = driver.getWindowHandle();  //remember the name of secondary browser tab
         String email = driver.findElement(emailReadField).getText();
         System.out.println("Registration email: " + email);
         driver.findElement(prolongButton).click();
@@ -58,8 +61,6 @@ public class Register {
         }
         driver.findElement(messageList).click();
 
-        /*WebDriverWait wait = new WebDriverWait(driver, 100);
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(verificationLink));*/
         driver.switchTo().frame("iframeMail").findElement(verificationLink).click();
         driver.close();
         for (String tab : driver.getWindowHandles()) { //switch to the active tab
@@ -69,24 +70,38 @@ public class Register {
         for (String tab : driver.getWindowHandles()) { //switch to the active tab
             driver.switchTo().window(tab);
         }
+
         return email;
     }
     public Register fillInMyFarm(String farmName, String address, String city, String country, String postcode) {
+        WebDriverWait wait = new WebDriverWait(driver, 100);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(farmNameField));
+
         driver.findElement(farmNameField).sendKeys(farmName);
         driver.findElement(addressField).sendKeys(address);
         driver.findElement(cityField).sendKeys(city);
         driver.findElement(countryDropDown).click();
-        driver.findElement(countryDropDown).click();    //dropdown opens from the 2nd click
+        driver.findElement(countryDropDown).click();    //dropdown opens from the 2nd try
         driver.findElement(countryElement).click();
         driver.findElement(postcodeField).sendKeys(postcode);
         driver.findElement(continueButton).click();
-        driver.findElement(acceptCheckbox).click();
-        //driver.findElement(signUpButton).click();
         return new Register(driver);
     }
     public Register fillInTermsOfService() {
+        WebDriverWait wait = new WebDriverWait(driver, 100);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(signUpButton));
         driver.findElement(acceptCheckbox).click();
         driver.findElement(signUpButton).click();
+        return new Register(driver);
+    }
+    public Register finishRegistration() {
+        try {
+            Thread.sleep(3000); //forced timeout to process request on Auth0
+        } catch (InterruptedException e) {
+
+            e.printStackTrace();
+        }
+        driver.findElement(finishButton).click();
         return new Register(driver);
     }
 }

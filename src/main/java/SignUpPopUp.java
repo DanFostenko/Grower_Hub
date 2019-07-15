@@ -12,7 +12,7 @@ public class SignUpPopUp {
     public By signInButton = By.xpath("//span[text()='Sign in']"); //locator for 'Sign in' button
     private By registerButton = By.xpath("//span[text()='Register For Free']"); //locator for 'Register For Free' button
     private By tryDemoButton = By.xpath("//span[text()='Try Our Demo Farm']");  //locator for 'Try Our Demo Farm' button
-    private By XButton = By.xpath(".//*[@data-cy='onboarding-close']");  //locator for 'X' button
+    private By xButton = By.xpath(".//*[@data-cy='onboarding-close']");  //locator for 'X' button
 
     //Methods
     public SignIn clickSignIn() {
@@ -31,7 +31,7 @@ public class SignUpPopUp {
     }
 
     public Weather clickX() {
-        driver.findElement(XButton).click();
+        driver.findElement(xButton).click();
         return new Weather(driver);
     }
 }
