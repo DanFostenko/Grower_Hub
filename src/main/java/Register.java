@@ -18,7 +18,6 @@ public class Register {
     //private By verificationLink = By.xpath("//td[@role='presentation']");
     //private By verificationLink = By.xpath("//td/a[starts-with(@href, 'https://growerhub')]");
     //private By verificationLink = By.partialLinkText("VERIFY YOUR ACCOUNT");
-    //private By verificationLink = By.xpath("/html/body/div/div[5]/table/tbody/tr/td/div/table/tbody/tr/td/table/tbody/tr/td/a");
 
     //Elements on Sign Up -> 1. My Profile step
     private By nameField = By.xpath(".//*[@placeholder='Name']");
@@ -38,7 +37,7 @@ public class Register {
     //Elements on Sign Up -> 3. Terms Of Service
     private By acceptCheckbox = By.xpath("//input[@name='registerTerms']");
     private By signUpButton = By.xpath("//button/span[text()='Sign up']");
-    private By finishButton = By.xpath("//span[text()='Finish']");  //locator for 'X' button
+    private By finishButton = By.xpath("//span[text()='Finish']");
 
     //Methods
     public String fillInMyProfile(String name, String telephone, String password) {
@@ -98,7 +97,6 @@ public class Register {
         try {
             Thread.sleep(3000); //forced timeout to process request on Auth0
         } catch (InterruptedException e) {
-
             e.printStackTrace();
         }
         driver.findElement(finishButton).click();
