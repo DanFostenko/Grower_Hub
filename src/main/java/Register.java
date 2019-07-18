@@ -40,12 +40,16 @@ public class Register {
     private By finishButton = By.xpath("//span[text()='Finish']");
 
     //Methods
-    public String fillInMyProfile(String name, String telephone, String password) {
-        String mainTab = driver.getWindowHandle();  //remember the name of main browser tab
-        ((JavascriptExecutor)driver).executeScript("window.open('https://www.minuteinbox.com','_blank');");    //driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t")
+    private void switchToActiveTab() {
         for (String tab : driver.getWindowHandles()) { //switch to the active tab
             driver.switchTo().window(tab);
         }
+    }
+
+    public String fillInMyProfile(String name, String telephone, String password) {
+        String mainTab = driver.getWindowHandle();  //remember the name of main browser tab
+        ((JavascriptExecutor)driver).executeScript("window.open('https://www.minuteinbox.com','_blank');");    //driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t")
+        switchToActiveTab();
         String email = driver.findElement(emailReadField).getText();
         System.out.println("Registration email: " + email);
         driver.findElement(prolongButton).click();
@@ -55,20 +59,14 @@ public class Register {
         driver.findElement(emailField).sendKeys(email);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(continueButton).click();
-        for (String tab : driver.getWindowHandles()) { //switch to the active tab
-            driver.switchTo().window(tab);
-        }
+        switchToActiveTab();
         driver.findElement(messageList).click();
 
         driver.switchTo().frame("iframeMail").findElement(verificationLink).click();
         driver.close();
-        for (String tab : driver.getWindowHandles()) { //switch to the active tab
-            driver.switchTo().window(tab);
-        }
+        switchToActiveTab();
         driver.close();
-        for (String tab : driver.getWindowHandles()) { //switch to the active tab
-            driver.switchTo().window(tab);
-        }
+        switchToActiveTab();
 
         return email;
     }
