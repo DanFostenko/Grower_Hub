@@ -85,15 +85,13 @@ public class Register {
         return new Register(driver);
     }
     public Register fillInTermsOfService() {
-        WebDriverWait wait = new WebDriverWait(driver, 100);
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(signUpButton));
         driver.findElement(acceptCheckbox).click();
         driver.findElement(signUpButton).click();
         return new Register(driver);
     }
     public Register finishRegistration() {
         try {
-            Thread.sleep(3000); //forced timeout to process request on Auth0
+            Thread.sleep(2000); //forced timeout to process request on Auth0
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

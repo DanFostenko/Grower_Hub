@@ -7,7 +7,7 @@ public class VarietySelection {
     public VarietySelection(WebDriver driver) {  //class constructor
         this.driver = driver;
     }
-    private By varietySelection = By.xpath("//*[@title='Variety Selection']");  //locator for 'Variety Selection' button
+    private By varietySelection = By.xpath("//*[@title='Variety Selection']/..");  //locator for 'Variety Selection' button
     private By wizard = By.xpath("//span[text()='VARIETY SELECTION']");  //locator for 'VARIETY SELECTION' button
     private By springWheatButton = By.xpath("//button/span[text()='Spring Wheat']");  //locator for 'Spring Wheat' button
     private By winterWheatButton = By.xpath("//button/span[text()='Winter Wheat']");  //locator for 'Winter Wheat' button

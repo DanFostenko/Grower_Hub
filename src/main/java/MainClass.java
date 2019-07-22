@@ -37,7 +37,7 @@ public class MainClass {
 
         //registration
         signUpPopUp.clickRegister();
-        email =  register.fillInMyProfile("Bogdan Fostenko","441234567898",password);
+        email = register.fillInMyProfile("Bogdan Fostenko","441234567898",password);
         signIn.signInWithCreds(email,password);
         register.fillInMyFarm("Bogdan's Farm","CPC4, Capital Park, Fulbourn, Cambridge CB21 5XE","Cambridge","United Kingdom","CB21 5XE");
         register.fillInTermsOfService();
@@ -62,6 +62,7 @@ public class MainClass {
         diseaseManagement.clickMoreDetails();
         diseaseManagementDetails.clickDiseaseOverview();
         nDVI.clickNDVI();
+        nDVI.clickGotIt();
         nDVI.clickMoreDetails();
         varietySelection.clickVarietySelection();
         varietySelection.clickWizard();

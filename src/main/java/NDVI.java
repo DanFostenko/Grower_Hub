@@ -8,12 +8,21 @@ public class NDVI {
         this.driver = driver;
     }
     private By nDVI = By.xpath("//*[@title='NDVI']");  //locator for 'NDVI' button
+    private By gotItButton = By.xpath("//span[text()='OK GOT IT']");  //locator for 'Ok Got It' button
     private By moreDetails = By.xpath("//span[text()='More Details']");  //locator for 'More Details' button
 
     public void clickNDVI() {
         driver.findElement(nDVI).click();
     }
+    public void clickGotIt() {
+        driver.findElement(gotItButton).click();
+    }
     public void clickMoreDetails() {
+        try {
+            Thread.sleep(1000); //forced timeout to process request on Auth0
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.findElement(moreDetails).click();
     }
 
