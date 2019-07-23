@@ -19,6 +19,7 @@ public class MyFields {
     private By moreDetails = By.xpath("//span[text()='More Details']");  //locator for 'More Details' button
     private By uploadNewShapeFilesButton = By.xpath("//button/span[text()='Upload Shape Files']/..");  //locator for 'Upload Shape Files' button
     private By dropZone = By.xpath("//div[starts-with(@class,'dropzone-box')]");    //locator for 'Drag&Drop' zone
+    private By fileSelector = By.xpath("//button/span[text()='Choose Files']/..");    //locator for 'Choose Files' zone
     //private By shapeFile =
 
     public void clickMyFields() {
@@ -31,14 +32,14 @@ public class MyFields {
         driver.findElement(xButton).click();
     }
 
-    /*public void uploadNewShapeFiles() {
+    public void uploadNewShapeFiles() {
         driver.findElement(addNewFieldButton).click();
         driver.findElement(uploadNewShapeFilesButton).click();
-        WebElement element = driver.findElement(dropZone);
-        Actions actions = new Actions(driver);
-        actions.dragAndDrop().build().perform();
+        WebElement uploadElement = driver.findElement(fileSelector);
+        uploadElement.sendKeys("C:\\Users\\DanFo\\IdeaProjects\\growerhubtest\\UKFieldShape.zip");
+        driver.findElement(fileSelector).click();
         driver.findElement(xButton).click();
-    }*/
+    }
 
     public void clickFarm() {
         driver.findElement(farmDropDown).click();

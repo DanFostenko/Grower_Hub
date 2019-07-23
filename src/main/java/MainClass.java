@@ -33,6 +33,13 @@ public class MainClass {
         //log in - log out
         signUpPopUp.clickSignIn();
         signIn.signInWithCreds(email,password);
+        /*try {
+            Thread.sleep(2000); //forced timeout to process request on Auth0
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        myFields.clickMyFields();
+        myFields.uploadNewShapeFiles();*/
         weather.clickLogout();
 
         //registration

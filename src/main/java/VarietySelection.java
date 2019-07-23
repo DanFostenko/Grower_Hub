@@ -19,7 +19,6 @@ public class VarietySelection {
         driver.findElement(varietySelection).click();
     }
     public void clickWizard() {
-        driver.findElement(varietySelection).click();
         driver.findElement(wizard).click();
         driver.findElement(springWheatButton).click();
         driver.findElement(winterWheatButton).click();
