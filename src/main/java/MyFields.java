@@ -1,7 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 public class MyFields {
     WebDriver driver;
@@ -15,7 +14,7 @@ public class MyFields {
     private By importFromGatekeeperButton = By.xpath("//span[text()='Import from Gatekeeper']");  //locator for 'Import from Gatekeeper' button
     private By xButton = By.xpath("//div[text()='Add New Field']/following-sibling::*");  //locator for 'X' (Close) button
     private By farmDropDown = By.xpath("//div[@class='farm-selection-comp']");  //locator for 'Farm' drop-down
-    private By seasonDropDown = By.xpath("//div[@class='farm-selection-comp']");  //locator for 'Season' drop-down
+    private By seasonDropDown = By.xpath("//div[@class='growing-season-selection-comp']");  //locator for 'Season' drop-down
     private By moreDetails = By.xpath("//span[text()='More Details']");  //locator for 'More Details' button
     private By uploadNewShapeFilesButton = By.xpath("//button/span[text()='Upload Shape Files']/..");  //locator for 'Upload Shape Files' button
     private By dropZone = By.xpath("//div[starts-with(@class,'dropzone-box')]");    //locator for 'Drag&Drop' zone

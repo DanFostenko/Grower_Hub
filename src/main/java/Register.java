@@ -1,5 +1,4 @@
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,7 +12,7 @@ public class Register {
     //Elements on 10Minutes
     private By emailReadField = By.xpath("//span[@id='email']");
     private By prolongButton = By.xpath("//a[text()='+10 min']");
-    private By messageList = By.xpath("//td[text()='Verify your email']");
+    private By messageList = By.xpath("//td[text()='Verify your email']/..");
     private By verificationLink = By.xpath("//a[contains(text(), 'VERIFY YOUR ACCOUNT')]");
     //private By verificationLink = By.xpath("//td[@role='presentation']");
     //private By verificationLink = By.xpath("//td/a[starts-with(@href, 'https://growerhub')]");
@@ -71,9 +70,7 @@ public class Register {
         return email;
     }
     public Register fillInMyFarm(String farmName, String address, String city, String country, String postcode) {
-        WebDriverWait wait = new WebDriverWait(driver, 100);
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(farmNameField));
-
+        countryElement = By.xpath("//li[text()='"+country+"']");
         driver.findElement(farmNameField).sendKeys(farmName);
         driver.findElement(addressField).sendKeys(address);
         driver.findElement(cityField).sendKeys(city);
