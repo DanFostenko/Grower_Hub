@@ -26,6 +26,12 @@ public class SignIn {
         this.typeEmail(email);
         this.typePassword(password);
         driver.findElement(signInButton).click();
+        try {
+            Thread.sleep(2000); //forced timeout to process login on Auth0
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return new SignIn(driver);
     }
 }

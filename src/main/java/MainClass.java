@@ -33,13 +33,6 @@ public class MainClass {
         //log in - log out
         signUpPopUp.clickSignIn();
         signIn.signInWithCreds(email,password);
-        /*try {
-            Thread.sleep(2000); //forced timeout to process request on Auth0
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        myFields.clickMyFields();
-        myFields.uploadNewShapeFiles();*/
         weather.clickLogout();
 
         //registration
@@ -50,6 +43,10 @@ public class MainClass {
         register.fillInTermsOfService();
         register.finishRegistration();
 
+        //upload new field
+        myFields.clickMyFields();
+        myFields.uploadNewShapeFiles();
+
         //go through the views
         weather.clickCookieOK();
         myFields.clickMyFields();
@@ -57,6 +54,11 @@ public class MainClass {
         myFields.clickFarm();
         myFields.clickSeason();
         myFields.clickMoreDetails();
+        myFieldsDetails.clickFieldDetails();
+        myFieldsDetails.clickOperations();
+        myFieldsDetails.clickMyFieldsFarmView();
+        myFields.clickFarm();
+        myFields.clickSeason();
         myFieldsDetails.clickCropOverview();
         myFieldsDetails.clickFarmDetails();
         myFieldsDetails.clickOperations();
