@@ -7,11 +7,11 @@ public class Register {
         this.driver = driver;
     }
 
-    //Elements on 10Minutes
+    //Elements on temporary email service page
     private By emailReadField = By.xpath("//span[@id='email']");
     private By prolongButton = By.xpath("//a[text()='+10 min']");
     private By messageList = By.xpath("//td[text()='Verify your email']/..");
-    private By verificationLink = By.xpath("//a[contains(text(), 'VERIFY YOUR ACCOUNT')]");
+    private By verificationLink = By.xpath("//a[contains(text(), 'Confirm my account')]");
     //private By verificationLink = By.xpath("//td[@role='presentation']");
     //private By verificationLink = By.xpath("//td/a[starts-with(@href, 'https://growerhub')]");
     //private By verificationLink = By.partialLinkText("VERIFY YOUR ACCOUNT");
