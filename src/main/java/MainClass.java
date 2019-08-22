@@ -7,7 +7,7 @@ public class MainClass {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\DanFo\\IdeaProjects\\growerhubtest\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS); //waiting for element to appear
+        driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS); //waiting for element to appear
         driver.manage().window().maximize(); //maximize browser window
 
         String site = "test.growerhub.io";  //dev.growerhub.io //growerhub.io
@@ -26,6 +26,7 @@ public class MainClass {
         DiseaseManagement diseaseManagement = new DiseaseManagement(driver);
         DiseaseManagementDetails diseaseManagementDetails = new DiseaseManagementDetails(driver);
         NDVI nDVI = new NDVI(driver);
+        Maps maps = new Maps(driver);
         NDVIDetails nDVIDetails = new NDVIDetails(driver);
         VarietySelection varietySelection = new VarietySelection(driver);
         MyServices myServices = new MyServices(driver);
@@ -34,11 +35,6 @@ public class MainClass {
         for (int i = 0; i < 1; i++) {
             signUpPopUp.clickSignIn();
             signIn.signInWithCreds(email,password);
-            /*myFields.clickMyFields();
-            myFields.clickMoreDetails();
-            myFieldsDetails.clickCropOverview();
-            myFieldsDetails.typeCrop();
-            myFieldsDetails.typeVariety();*/
             weather.clickLogout();
         }
 
@@ -60,6 +56,10 @@ public class MainClass {
         myFields.clickAddNewField();
         myFields.clickFarm();
         myFields.clickSeason();
+        myFields.clickFeedback();
+        myFields.clickCancelFeedback();
+        myFields.clickBell();
+        myFields.clickBell();
         myFields.clickMoreDetails();
         myFieldsDetails.clickFieldDetails();
         myFieldsDetails.clickOperations();
@@ -67,9 +67,19 @@ public class MainClass {
         myFields.clickFarm();
         myFields.clickSeason();
         myFieldsDetails.clickCropOverview();
+        myFieldsDetails.typeCrop();
+        myFieldsDetails.typeVariety();
+        myFieldsDetails.typeFieldName();
+        //myFieldsDetails.typeSoilType();
+        //myFieldsDetails.typeDrillDate();
         myFieldsDetails.clickFarmDetails();
         myFieldsDetails.clickOperations();
         myFieldsDetails.clickImportHistory();
+        maps.clickMaps();
+        maps.clickAdd();
+        maps.clickSoilMap();
+        maps.clickDrillMap();
+        maps.clickCancel();
         weather.clickWeather();
         weather.clickMoreDetails();
         weatherDetails.clickSprayGuide();

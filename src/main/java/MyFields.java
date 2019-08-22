@@ -17,6 +17,9 @@ public class MyFields {
     private By xButton = By.xpath("//div[text()='Add New Field']/following-sibling::*");  //locator for 'X' (Close) button
     private By farmDropDown = By.xpath("//div[@class='farm-selection-comp']");  //locator for 'Farm' drop-down
     private By seasonDropDown = By.xpath("//div[@class='growing-season-selection-comp']");  //locator for 'Season' drop-down
+    private By feedbackButton = By.xpath("//span[text()='Feedback']/parent::button");  //locator for 'Feedback' button
+    private By cancelFeedbackButton = By.xpath("//span[text()='Cancel']/parent::button");  //locator for 'Cancel' button
+    private By bellButton = By.xpath("//span[text()='Feedback']/parent::button/following-sibling::div[1]");  //locator for 'Bell' button
     private By moreDetails = By.xpath("//span[text()='More Details']");  //locator for 'More Details' button
     private By uploadNewShapeFilesButton = By.xpath("//button/span[text()='Upload Shape Files']/..");  //locator for 'Upload Shape Files' button
     private By dropZone = By.xpath("//div[starts-with(@class,'dropzone-box')]");    //locator for 'Drag&Drop' zone
@@ -91,6 +94,18 @@ public class MyFields {
 
     public void clickSeason() {
         driver.findElement(seasonDropDown).click();
+    }
+
+    public void clickFeedback() {
+        driver.findElement(feedbackButton).click();
+    }
+
+    public void clickCancelFeedback() {
+        driver.findElement(cancelFeedbackButton).click();
+    }
+
+    public void clickBell() {
+        driver.findElement(bellButton).click();
     }
 
     public void clickMoreDetails() {

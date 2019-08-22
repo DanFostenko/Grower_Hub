@@ -1,5 +1,7 @@
 import org.openqa.selenium.*;
 
+import java.util.concurrent.TimeUnit;
+
 public class Register {
     WebDriver driver;
 
@@ -57,7 +59,9 @@ public class Register {
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(continueButton).click();
         switchToActiveTab();
+        driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS); //waiting for element to appear
         driver.findElement(messageList).click();
+        driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS); //waiting for element to appear
 
         driver.switchTo().frame("iframeMail").findElement(verificationLink).click();
         driver.close();

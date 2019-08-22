@@ -10,8 +10,8 @@ public class Weather {
 
     private By weatherButton = By.xpath("//*[@title='Weather']");  //locator for 'Weather' button
     private By cookieOKButton = By.xpath("//button/span[text()='OK, Continue']/.."); //xpath locator for 'OK, continue' button in Cookie Policy window
-    private By userPicButton = By.xpath("//*[@id=\"app\"]/div/div[2]/div/div/header/div/div[6]/button");
-    private By logoutButton = By.xpath("//span[text()='Logout']");
+    private By userPicButton = By.xpath("//span[text()='Feedback']/parent::button/following-sibling::div[2]");  //locator for user button linked to Feedback button
+    private By logoutButton = By.xpath("//span[text()='Logout']/../..");    //locator for 'Logout' menu from user dropdown
     private By moreDetails = By.xpath("//span[text()='More Details']");  //locator for 'More Details' button
 
     public void clickWeather() {
