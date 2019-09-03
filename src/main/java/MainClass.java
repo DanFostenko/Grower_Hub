@@ -76,6 +76,7 @@ public class MainClass {
         //myFieldsDetails.typeDrillDate();
         myFieldsDetails.clickFarmDetails();
         myFieldsDetails.clickOperations();
+        myFieldsDetails.clickCropRotation();
         myFieldsDetails.clickImportHistory();
         maps.clickMaps();
         maps.clickAdd();
