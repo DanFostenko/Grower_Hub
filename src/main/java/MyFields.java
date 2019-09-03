@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.awt.*;
@@ -24,6 +25,10 @@ public class MyFields {
     private By uploadNewShapeFilesButton = By.xpath("//button/span[text()='Upload Shape Files']/..");  //locator for 'Upload Shape Files' button
     private By dropZone = By.xpath("//div[starts-with(@class,'dropzone-box')]");    //locator for 'Drag&Drop' zone
     private By fileSelector = By.xpath("//*[@id='app']/div/div[2]/div/div/div[3]/div[2]/div[2]/div/div/div/div[3]/div/button");    //locator for 'Choose Files' button
+    private By infoCropSummary = By.xpath("//div[text()='Crop Summary']/..");  //Locator for Crop Summary title on info panel
+    private By infoCropTable = By.xpath("//div[@class='comp-expandable-list']");  //Locator for Summary table on info panel
+    private By keyList = By.xpath("//p[text()='Key']");  //Locator for Key leaflet
+    private By mapLayers = By.xpath("//a[@title='Layers']");  //Locator for map layers
 
     public void clickMyFields() {
         driver.findElement(myFieldsButton).click();
@@ -106,10 +111,27 @@ public class MyFields {
 
     public void clickBell() {
         driver.findElement(bellButton).click();
+        driver.findElement(bellButton).click();
     }
 
     public void clickMoreDetails() {
         driver.findElement(moreDetails).click();
+    }
+
+    public boolean elementExists(By xpath) {
+        try {
+            driver.findElement(xpath);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public void findElements() {
+        elementExists(infoCropSummary);
+        elementExists(infoCropTable);
+        elementExists(keyList);
+        elementExists(mapLayers);
     }
 
 }

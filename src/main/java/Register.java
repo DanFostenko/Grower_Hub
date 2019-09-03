@@ -1,5 +1,7 @@
 import org.openqa.selenium.*;
-
+import org.openqa.selenium.interactions.Actions;
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 public class Register {
@@ -36,7 +38,12 @@ public class Register {
     //Elements on Sign Up -> 3. Terms Of Service
     private By acceptCheckbox = By.xpath("//input[@name='registerTerms']");
     private By signUpButton = By.xpath("//button/span[text()='Sign up']");
-    private By finishButton = By.xpath("//span[text()='Finish']");
+
+    //Elements on Sign Up -> 4. My Fields
+    private By finishButton = By.xpath("//span[text()='Finish']/..");
+    private By growingSeasonDropDown = By.xpath("//label[text()='Select Growing Season']/following-sibling::*/div");
+    private By growingSeasonOption = By.xpath("//li[text()='2018-2019 Season']");
+    private By xButton = By.xpath("//div[@data-cy='onboarding-close']");
 
     //Methods
     private void switchToActiveTab() {
@@ -62,7 +69,6 @@ public class Register {
         driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS); //waiting for element to appear
         driver.findElement(messageList).click();
         driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS); //waiting for element to appear
-
         driver.switchTo().frame("iframeMail").findElement(verificationLink).click();
         driver.close();
         switchToActiveTab();
@@ -90,11 +96,14 @@ public class Register {
     }
     public Register finishRegistration() {
         try {
-            Thread.sleep(2000); //forced timeout to process request on Auth0
+            Thread.sleep(1000); //forced timeout to process request on Auth0
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        driver.findElement(finishButton).click();
+        //driver.findElement(growingSeasonDropDown).click();
+        //driver.findElement(growingSeasonOption).click();
+        driver.findElement(xButton).click();
+        //driver.findElement(finishButton).click();
         return new Register(driver);
     }
 }
