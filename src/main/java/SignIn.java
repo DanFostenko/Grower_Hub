@@ -12,6 +12,10 @@ public class SignIn {
     private By emailField = By.xpath(".//*[@placeholder='Email Address']");
     private By passwordField = By.xpath(".//*[@placeholder='Password *']");
     private By signInButton = By.xpath("//button/span[text()='Sign in']");
+    private By policyPrivacyAcceptCheckbox = By.xpath("//input[@name='registerPrivacyPolicy']");   //locator for 'I accept the Privacy Policy' checkbox
+    private By policyAcceptButton = By.xpath("//span[text()='ACCEPT & CLOSE']/..");    //locator for 'ACCEPT & CLOSE' button
+    private By policyTermsConditionsAcceptCheckbox = By.xpath("//input[@name='registerTerms']");   //locator for 'I accept the Terms & Conditions' checkbox
+    private By policyDeclineButton = By.xpath("//span[text()='DECLINE']");    //locator for 'DECLINE' button
 
     //Methods
     public SignIn typeEmail(String email) {
@@ -27,11 +31,20 @@ public class SignIn {
         this.typePassword(password);
         driver.findElement(signInButton).click();
         try {
-            Thread.sleep(2000); //forced timeout to process login on Auth0
+            Thread.sleep(1000); //forced timeout to process login on Auth0
         }
         catch (InterruptedException e) {
             e.printStackTrace();
         }
         return new SignIn(driver);
+    }
+    public void acceptPolicy() {    //required when policy is updated for existing account
+        driver.findElement(policyPrivacyAcceptCheckbox).click();
+        driver.findElement(policyAcceptButton).click();
+        driver.findElement(policyTermsConditionsAcceptCheckbox).click();
+        driver.findElement(policyAcceptButton).click();
+    }
+    public void declinePolicy() {
+        driver.findElement(policyDeclineButton).click();
     }
 }
