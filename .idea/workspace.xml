@@ -4,9 +4,11 @@
     <list default="true" id="625c6f5a-0cbc-4e6a-ac15-510ac4ca2846" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyFieldsDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyFieldsDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Weather.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WeatherDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WeatherDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MainClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyFieldsDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyFieldsDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Weather.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Weather.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/WeatherDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/WeatherDetails.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
