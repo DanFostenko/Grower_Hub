@@ -35,6 +35,7 @@ public class MainClass {
         for (int i = 0; i < 1; i++) {
             signUpPopUp.clickSignIn();
             signIn.signInWithCreds(email,password);
+            weather.clickCookieOK();
             weather.clickLogout();
         }
 
@@ -77,10 +78,8 @@ public class MainClass {
         myFieldsDetails.clickCropRotation();
         myFieldsDetails.clickImportHistory();
         maps.clickMaps();
-        maps.clickAdd();
-        maps.clickSoilMap();
-        maps.clickDrillMap();
-        maps.clickCancel();
+        maps.addSoilMap();
+        maps.addDrillMap();
         weather.clickWeather();
         weather.clickMoreDetails();
         weatherDetails.clickSprayGuide();

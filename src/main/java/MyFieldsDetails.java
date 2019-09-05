@@ -67,9 +67,9 @@ public class MyFieldsDetails {
         driver.findElement(farmView).click();
     }
     public void clickCropOverview() {
+        driver.findElement(cropOverview).click();
         driver.findElement(selectorRadioButton).click();    //check radio
         driver.findElement(selectorRadioButton).click();    //uncheck radio
-        driver.findElement(cropOverview).click();
         driver.findElement(gridViewToggle).click();
         driver.findElement(tableViewToggle).click();
         elementExists(paginationList);
