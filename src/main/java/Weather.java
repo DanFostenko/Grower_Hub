@@ -27,7 +27,6 @@ public class Weather {
         elementExists(mapLayers);
         elementExists(infoSprayGuide);
         elementExists(infoForecast);
-        clickCookieOK();    //temporarily
         driver.findElement(weatherPlayerButton).click();
         elementExists(weatherPlayerMenu);
         driver.findElement(weatherPlayerButton).click();

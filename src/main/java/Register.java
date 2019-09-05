@@ -95,15 +95,11 @@ public class Register {
         return new Register(driver);
     }
     public Register finishRegistration() {
-        try {
-            Thread.sleep(1000); //forced timeout to process request on Auth0
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Maps.waitObjectLoad(2000);  //forced timeout to process request on Auth0
         //driver.findElement(growingSeasonDropDown).click();
         //driver.findElement(growingSeasonOption).click();
         driver.findElement(xButton).click();
-        //driver.findElement(finishButton).click();
+        //driver.findElement(finishButton).click(); //need to scroll down to find the button
         return new Register(driver);
     }
 }

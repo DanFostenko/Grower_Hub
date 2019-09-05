@@ -30,12 +30,7 @@ public class SignIn {
         this.typeEmail(email);
         this.typePassword(password);
         driver.findElement(signInButton).click();
-        try {
-            Thread.sleep(1000); //forced timeout to process login on Auth0
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Maps.waitObjectLoad(1000);  //forced timeout to process request on Auth0
         return new SignIn(driver);
     }
     public void acceptPolicy() {    //required when policy is updated for existing account

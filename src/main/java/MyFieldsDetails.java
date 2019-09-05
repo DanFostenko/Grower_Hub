@@ -2,8 +2,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-
-import javax.swing.text.TabableView;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
@@ -133,45 +131,33 @@ public class MyFieldsDetails {
     public void typeFieldName() {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(fieldName)).build().perform();
-        try {
-            driver.findElement(fieldNameEdit).click();
-            driver.findElement(fieldNameInput).sendKeys("Field Name X");
-            Thread.sleep(1000); //forced timeout to complete renaming
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Maps.waitObjectLoad(1000);  //forced timeout to complete renaming
+        driver.findElement(fieldNameEdit).click();
+        driver.findElement(fieldNameInput).sendKeys("Field Name X");
     }
     public void typeSoilType() {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(soilType)).build().perform();
+        driver.findElement(soilTypeEdit).click();
+        Maps.waitObjectLoad(1000); //forced timeout to complete the action
+        Robot r = null;
         try {
-            driver.findElement(soilTypeEdit).click();
-            Thread.sleep(1000); //forced timeout to complete the action
-            Robot r = null;
-            try {
-                r = new Robot();
-            } catch (AWTException e) {
-                e.printStackTrace();
-            }
-            r.keyPress(KeyEvent.VK_P);  r.keyPress(KeyEvent.VK_E);
-            r.keyPress(KeyEvent.VK_A);  r.keyPress(KeyEvent.VK_T);
-            Thread.sleep(1000); //forced timeout to give some time to return the options
-            driver.findElement(option).click();
-        } catch (InterruptedException e) {
+            r = new Robot();
+        } catch (AWTException e) {
             e.printStackTrace();
         }
+        r.keyPress(KeyEvent.VK_P);  r.keyPress(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_A);  r.keyPress(KeyEvent.VK_T);
+        Maps.waitObjectLoad(1000); //forced timeout to give some time to return the options
+        driver.findElement(option).click();
     }
     public void typeDrillDate() {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(drillDate)).build().perform();
-        try {
-            driver.findElement(drillDateEdit).click();
-            Thread.sleep(2000); //forced timeout
-            driver.findElement(drillDateOKButton).click();
-            Thread.sleep(1000); //forced timeout
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        driver.findElement(drillDateEdit).click();
+        Maps.waitObjectLoad(1000);  //forced timeout to close the calendar
+        driver.findElement(drillDateOKButton).click();
+        Maps.waitObjectLoad(1000);  //forced timeout to close the calendar
     }
     public boolean elementExists(By xpath) {
         try {

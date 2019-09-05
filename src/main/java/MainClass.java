@@ -35,7 +35,6 @@ public class MainClass {
         for (int i = 0; i < 1; i++) {
             signUpPopUp.clickSignIn();
             signIn.signInWithCreds(email,password);
-            weather.clickCookieOK();
             weather.clickLogout();
         }
 
@@ -49,7 +48,8 @@ public class MainClass {
 
         //upload new field
         myFields.clickMyFields();
-        myFields.uploadNewShapeFiles();
+        myFields.clickUploadShapeFiles();
+        myFields.clickEditLayers();
 
         //go through the views
         weather.clickCookieOK();
@@ -95,7 +95,6 @@ public class MainClass {
         varietySelection.clickVarietyAZ();
         myServices.clickMyServices();
         myServices.clickCategories();
-
         driver.quit();  //end work of driver
     }
 }

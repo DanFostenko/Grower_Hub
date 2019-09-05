@@ -18,11 +18,7 @@ public class NDVI {
         driver.findElement(gotItButton).click();
     }
     public void clickMoreDetails() {
-        try {
-            Thread.sleep(1000); //forced timeout to process request on Auth0
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Maps.waitObjectLoad(1000);  //forced timeout to download NDVI tiles
         driver.findElement(moreDetails).click();
     }
 

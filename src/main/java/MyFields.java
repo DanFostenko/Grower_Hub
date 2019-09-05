@@ -22,13 +22,16 @@ public class MyFields {
     private By cancelFeedbackButton = By.xpath("//span[text()='Cancel']/parent::button");  //locator for 'Cancel' button
     private By bellButton = By.xpath("//span[text()='Feedback']/parent::button/following-sibling::div[1]");  //locator for 'Bell' button
     private By moreDetails = By.xpath("//span[text()='More Details']");  //locator for 'More Details' button
-    private By uploadNewShapeFilesButton = By.xpath("//button/span[text()='Upload Shape Files']/..");  //locator for 'Upload Shape Files' button
+    private By uploadShapeFilesButton = By.xpath("//button/span[text()='Upload Shape Files']/..");  //locator for 'Upload Shape Files' button
     private By dropZone = By.xpath("//div[starts-with(@class,'dropzone-box')]");    //locator for 'Drag&Drop' zone
     private By fileSelector = By.xpath("//*[@id='app']/div/div[2]/div/div/div[3]/div[2]/div[2]/div/div/div/div[3]/div/button");    //locator for 'Choose Files' button
     private By infoCropSummary = By.xpath("//div[text()='Crop Summary']/..");  //Locator for Crop Summary title on info panel
     private By infoCropTable = By.xpath("//div[@class='comp-expandable-list']");  //Locator for Summary table on info panel
     private By keyList = By.xpath("//p[text()='Key']");  //Locator for Key leaflet
     private By mapLayers = By.xpath("//a[@title='Layers']");  //Locator for map layers
+    private By editLayersButton = By.xpath("//div[@class='leaflet-draw-section']");  //Locator for 'Edit layers.' button
+    private By editLayersCancelOption = By.xpath("//button[@class='leaflet-map-poly-actions__cancel']");  //Locator for 'Cancel' option in 'Edit layers.' list
+    private By editLayersCancelUpdateButton = By.xpath("//span[text()='Cancel Update']/..");  //Locator for 'Cancel Update' button in 'Edit layers.' modal message
 
     public void clickMyFields() {
         driver.findElement(myFieldsButton).click();
@@ -40,20 +43,15 @@ public class MyFields {
         driver.findElement(xButton).click();
     }
 
-    public void uploadNewShapeFiles() {
+    public void clickUploadShapeFiles() {
         driver.findElement(addNewFieldButton).click();
-        driver.findElement(uploadNewShapeFilesButton).click();
+        driver.findElement(uploadShapeFilesButton).click();
         uploadFile();
     }
 
     public void uploadFile() {  //I'm very ashamed of the peace of code below, but there's no another solution
         driver.findElement(fileSelector).click();   //fileSelector type is button, it's not input
-        try {
-            Thread.sleep(2000); //forced timeout to process zip uploading
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Maps.waitObjectLoad(1000);  //forced timeout
         /*WebElement uploadElement = driver.findElement(fileSelector);
         driver.switchTo().activeElement().sendKeys("C:\\Users\\DanFo\\IdeaProjects\\growerhubtest\\UKFieldShape.zip");*/
         Robot r = null;
@@ -84,13 +82,14 @@ public class MyFields {
         r.keyPress(KeyEvent.VK_I);  r.keyRelease(KeyEvent.VK_I);
         r.keyPress(KeyEvent.VK_P);  r.keyRelease(KeyEvent.VK_P);
         r.keyPress(KeyEvent.VK_ENTER);  r.keyRelease(KeyEvent.VK_ENTER);    // confirm by pressing Enter in the end
-        try {
-            Thread.sleep(2000); //forced timeout to process zip uploading
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Maps.waitObjectLoad(2000);  //forced timeout to process zip uploading
         driver.findElement(xButton).click();
+    }
+
+    public void clickEditLayers() {
+        driver.findElement(editLayersButton).click();
+        driver.findElement(editLayersCancelOption).click();
+        driver.findElement(editLayersCancelUpdateButton).click();
     }
 
     public void clickFarm() {

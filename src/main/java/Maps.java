@@ -23,11 +23,11 @@ public class Maps {
 
     public void clickMaps() {
         driver.findElement(maps).click();
-        waitObjectLoad();
+        waitObjectLoad(1000);
     }
     public void clickAdd() {
         driver.findElement(addMapButton).click();
-        waitObjectLoad();
+        waitObjectLoad(1000);
     }
     public void addSoilMap() {
         clickAdd();
@@ -37,10 +37,10 @@ public class Maps {
         driver.findElement(fieldSelectionNextButton).click();
         driver.findElement(mapRefinementDateFromPicker).click();
         driver.findElement(calendarOkButton).click();
-        waitObjectLoad();
+        waitObjectLoad(1000);
         driver.findElement(mapRefinementDateToPicker).click();
         driver.findElement(calendarOkButton).click();
-        waitObjectLoad();
+        waitObjectLoad(1000);
         driver.findElement(maps).click();
     }
     public void addDrillMap() {
@@ -53,18 +53,18 @@ public class Maps {
         driver.findElement(mapRefinementNextButton).click();
         driver.findElement(mapRefinementDateFromPicker).click();
         driver.findElement(calendarOkButton).click();
-        waitObjectLoad();
+        waitObjectLoad(1000);
         driver.findElement(mapRefinementDateToPicker).click();
         driver.findElement(calendarOkButton).click();
-        waitObjectLoad();
+        waitObjectLoad(1000);
         driver.findElement(maps).click();
     }
     public void clickCancel() {
         driver.findElement(cancelButton).click();
     }
-    private void waitObjectLoad() {
+    public static void waitObjectLoad(int timeout) {
         try {
-            Thread.sleep(1000); //forced timeout to wait for next object element load
+            Thread.sleep(timeout); //forced timeout to wait for the next object element to load
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
