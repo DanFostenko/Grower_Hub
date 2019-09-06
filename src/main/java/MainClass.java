@@ -32,11 +32,11 @@ public class MainClass {
         MyServices myServices = new MyServices(driver);
 
         //log in - log out
-        for (int i = 0; i < 1; i++) {
+        /*for (int i = 0; i < 1; i++) {
             signUpPopUp.clickSignIn();
             signIn.signInWithCreds(email,password);
             weather.clickLogout();
-        }
+        }*/
 
         //registration
         signUpPopUp.clickRegister();
@@ -45,14 +45,17 @@ public class MainClass {
         register.fillInMyFarm("Bogdan's Farm","CPC4, Capital Park, Fulbourn, Cambridge CB21 5XE","Cambridge","United Kingdom","CB21 5XE");
         register.fillInTermsOfService();
         register.finishRegistration();
+        weather.clickCookieOK();
 
         //upload new field
         myFields.clickMyFields();
         myFields.clickUploadShapeFiles();
         myFields.clickEditLayers();
+        myFields.clickEditSaveLayers();
+        myFields.clickEditLayers();
+        myFields.clickEditCancelLayers();
 
         //go through the views
-        weather.clickCookieOK();
         myFields.clickMyFields();
         myFields.clickAddNewField();
         myFields.clickFarm();

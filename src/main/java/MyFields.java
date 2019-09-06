@@ -30,6 +30,7 @@ public class MyFields {
     private By keyList = By.xpath("//p[text()='Key']");  //Locator for Key leaflet
     private By mapLayers = By.xpath("//a[@title='Layers']");  //Locator for map layers
     private By editLayersButton = By.xpath("//div[@class='leaflet-draw-section']");  //Locator for 'Edit layers.' button
+    private By editLayersSaveOption = By.xpath("//button[@class='leaflet-map-poly-actions__save']");  //Locator for 'Save' option in 'Edit layers.' list
     private By editLayersCancelOption = By.xpath("//button[@class='leaflet-map-poly-actions__cancel']");  //Locator for 'Cancel' option in 'Edit layers.' list
     private By editLayersCancelUpdateButton = By.xpath("//span[text()='Cancel Update']/..");  //Locator for 'Cancel Update' button in 'Edit layers.' modal message
 
@@ -88,8 +89,15 @@ public class MyFields {
 
     public void clickEditLayers() {
         driver.findElement(editLayersButton).click();
+    }
+    public void clickEditSaveLayers() {
+        driver.findElement(editLayersSaveOption).click();
+    }
+    public void clickEditCancelLayers() {
         driver.findElement(editLayersCancelOption).click();
+        Maps.waitObjectLoad(1000);  //forced timeout to display modal window
         driver.findElement(editLayersCancelUpdateButton).click();
+        Maps.waitObjectLoad(1000);  //forced timeout to hide modal window
     }
 
     public void clickFarm() {
