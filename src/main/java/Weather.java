@@ -31,16 +31,20 @@ public class Weather {
         elementExists(weatherPlayerMenu);
         driver.findElement(weatherPlayerButton).click();
     }
+
     public void clickCookieOK() {
         driver.findElement(cookieOKButton).click();
     }
+
     public void clickMoreDetails() {
         driver.findElement(moreDetails).click();
     }
+
     public void clickLogout() {
         driver.findElement(userPicButton).click();
         driver.findElement(logoutButton).click();
     }
+
     public boolean elementExists(By xpath) {
         try {
             driver.findElement(xpath);
@@ -49,4 +53,5 @@ public class Weather {
         }
         return true;
     }
+
 }

@@ -7,6 +7,7 @@ public class VarietySelection {
     public VarietySelection(WebDriver driver) {  //class constructor
         this.driver = driver;
     }
+
     private By varietySelection = By.xpath("//*[@title='Variety Selection']/..");  //locator for 'Variety Selection' button
     private By wizard = By.xpath("//span[text()='VARIETY SELECTION']");  //locator for 'VARIETY SELECTION' button
     private By springWheatButton = By.xpath("//button/span[text()='Spring Wheat']");  //locator for 'Spring Wheat' button
@@ -18,6 +19,7 @@ public class VarietySelection {
     public void clickVarietySelection() {
         driver.findElement(varietySelection).click();
     }
+
     public void clickWizard() {
         driver.findElement(wizard).click();
         driver.findElement(springWheatButton).click();
@@ -25,8 +27,10 @@ public class VarietySelection {
         driver.findElement(springBarleyButton).click();
         driver.findElement(winterBarleyButton).click();
     }
+
     public void clickVarietyAZ() {
         driver.findElement(varietySelection).click();
         driver.findElement(varietyAZ).click();
     }
+
 }

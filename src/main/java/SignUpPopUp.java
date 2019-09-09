@@ -34,4 +34,5 @@ public class SignUpPopUp {
         driver.findElement(xButton).click();
         return new Weather(driver);
     }
+
 }

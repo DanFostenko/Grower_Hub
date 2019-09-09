@@ -1,7 +1,4 @@
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
-import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 public class Register {
@@ -77,6 +74,7 @@ public class Register {
 
         return email;
     }
+
     public Register fillInMyFarm(String farmName, String address, String city, String country, String postcode) {
         countryElement = By.xpath("//li[text()='"+country+"']");
         driver.findElement(farmNameField).sendKeys(farmName);
@@ -89,11 +87,13 @@ public class Register {
         driver.findElement(continueButton).click();
         return new Register(driver);
     }
+
     public Register fillInTermsOfService() {
         driver.findElement(acceptCheckbox).click();
         driver.findElement(signUpButton).click();
         return new Register(driver);
     }
+
     public Register finishRegistration() {
         Maps.waitObjectLoad(2000);  //forced timeout to process request on Auth0
         //driver.findElement(growingSeasonDropDown).click();
@@ -102,4 +102,5 @@ public class Register {
         //driver.findElement(finishButton).click(); //need to scroll down to find the button
         return new Register(driver);
     }
+
 }

@@ -36,6 +36,7 @@ public class WeatherDetails {
         elementExists(sprayingTable);
         elementExists(moreDetailsButton);
     }
+
     public void clickWeatherAnalysis() {
         driver.findElement(weatherAnalysis).click();
         driver.findElement(data1D).click();
@@ -56,6 +57,7 @@ public class WeatherDetails {
         driver.findElement(data2015).click();
         driver.findElement(data2014).click();
     }
+
     public boolean elementExists(By xpath) {
         try {
             driver.findElement(xpath);
@@ -64,4 +66,5 @@ public class WeatherDetails {
         }
         return true;
     }
+
 }

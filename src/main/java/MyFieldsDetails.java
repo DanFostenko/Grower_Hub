@@ -11,6 +11,7 @@ public class MyFieldsDetails {
     public MyFieldsDetails(WebDriver driver) {  //class constructor
         this.driver = driver;
     }
+
     //Tabs
     private By fieldDetails = By.xpath("//span[text()='Field Details']");  //locator for 'Field Details' tab in single-field view
     private By farmView = By.xpath("//a[text()='My Fields']");  //locator for 'My Fields' link in Farm view
@@ -61,9 +62,11 @@ public class MyFieldsDetails {
     public void clickFieldDetails() {
         driver.findElement(fieldDetails).click();
     }
+
     public void clickMyFieldsFarmView() {
         driver.findElement(farmView).click();
     }
+
     public void clickCropOverview() {
         driver.findElement(cropOverview).click();
         driver.findElement(selectorRadioButton).click();    //check radio
@@ -74,6 +77,7 @@ public class MyFieldsDetails {
         elementExists(paginationButtons);
         elementExists(addFieldButton);
     }
+
     public void clickFarmDetails() {
         driver.findElement(farmDetails).click();
         elementExists(farmLocationGroup);
@@ -81,6 +85,7 @@ public class MyFieldsDetails {
         elementExists(farmOverviewGroup);
         elementExists(cropOverviewGroup);
     }
+
     public void clickOperations() {
         driver.findElement(operations).click();
         driver.findElement(boardViewToggle).click();
@@ -92,15 +97,18 @@ public class MyFieldsDetails {
         elementExists(groupByDropDown);
         elementExists(addOperationButton);
     }
+
     public void clickCropRotation() {
         driver.findElement(cropRotation).click();
         elementExists(paginationList);
         elementExists(paginationButtons);
         elementExists(cropAreaChart);
     }
+
     public void clickImportHistory() {
         driver.findElement(importHistory).click();
     }
+
     public void typeCrop() {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(crop)).build().perform();
@@ -115,6 +123,7 @@ public class MyFieldsDetails {
         r.keyPress(KeyEvent.VK_C);  r.keyPress(KeyEvent.VK_A);  r.keyPress(KeyEvent.VK_R);
         driver.findElement(option).click();
     }
+
     public void typeVariety() {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(variety)).build().perform();
@@ -128,6 +137,7 @@ public class MyFieldsDetails {
         r.keyPress(KeyEvent.VK_A);  r.keyPress(KeyEvent.VK_B);
         driver.findElement(option).click();
     }
+
     public void typeFieldName() {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(fieldName)).build().perform();
@@ -135,6 +145,7 @@ public class MyFieldsDetails {
         driver.findElement(fieldNameEdit).click();
         driver.findElement(fieldNameInput).sendKeys("Field Name X");
     }
+
     public void typeSoilType() {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(soilType)).build().perform();
@@ -151,6 +162,7 @@ public class MyFieldsDetails {
         Maps.waitObjectLoad(1000); //forced timeout to give some time to return the options
         driver.findElement(option).click();
     }
+
     public void typeDrillDate() {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(drillDate)).build().perform();
@@ -159,6 +171,7 @@ public class MyFieldsDetails {
         driver.findElement(drillDateOKButton).click();
         Maps.waitObjectLoad(1000);  //forced timeout to close the calendar
     }
+
     public boolean elementExists(By xpath) {
         try {
             driver.findElement(xpath);
@@ -167,4 +180,5 @@ public class MyFieldsDetails {
         }
         return true;
     }
+
 }

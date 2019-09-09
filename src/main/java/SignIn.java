@@ -22,10 +22,12 @@ public class SignIn {
         driver.findElement(emailField).sendKeys(email);
         return this;
     }
+
     public SignIn typePassword(String password) {
         driver.findElement(passwordField).sendKeys(password);
         return this;
     }
+
     public SignIn signInWithCreds(String email, String password) {
         this.typeEmail(email);
         this.typePassword(password);
@@ -33,13 +35,16 @@ public class SignIn {
         Maps.waitObjectLoad(1000);  //forced timeout to process request on Auth0
         return new SignIn(driver);
     }
+
     public void acceptPolicy() {    //required when policy is updated for existing account
         driver.findElement(policyPrivacyAcceptCheckbox).click();
         driver.findElement(policyAcceptButton).click();
         driver.findElement(policyTermsConditionsAcceptCheckbox).click();
         driver.findElement(policyAcceptButton).click();
     }
+
     public void declinePolicy() {
         driver.findElement(policyDeclineButton).click();
     }
+
 }

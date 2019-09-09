@@ -90,9 +90,11 @@ public class MyFields {
     public void clickEditLayers() {
         driver.findElement(editLayersButton).click();
     }
+
     public void clickEditSaveLayers() {
         driver.findElement(editLayersSaveOption).click();
     }
+
     public void clickEditCancelLayers() {
         driver.findElement(editLayersCancelOption).click();
         Maps.waitObjectLoad(1000);  //forced timeout to display modal window

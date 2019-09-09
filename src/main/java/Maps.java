@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import java.awt.*;
 
 public class Maps {
     WebDriver driver;
@@ -7,6 +8,7 @@ public class Maps {
     public Maps(WebDriver driver) {  //class constructor
         this.driver = driver;
     }
+
     private By maps = By.xpath("//*[@title='Maps']");  //locator for 'Maps' button
     private By addMapButton = By.xpath("//div[contains(text(),'get started')]/../button");  //locator for '+' button
     private By soilMapButton = By.xpath("//span[text()='Soil Map']/..");  //locator for 'Soil Map' button
@@ -25,10 +27,12 @@ public class Maps {
         driver.findElement(maps).click();
         waitObjectLoad(1000);
     }
+
     public void clickAdd() {
         driver.findElement(addMapButton).click();
         waitObjectLoad(1000);
     }
+
     public void addSoilMap() {
         clickAdd();
         driver.findElement(soilMapButton).click();
@@ -43,6 +47,7 @@ public class Maps {
         waitObjectLoad(1000);
         driver.findElement(maps).click();
     }
+
     public void addDrillMap() {
         clickAdd();
         driver.findElement(drillMapButton).click();
@@ -59,9 +64,11 @@ public class Maps {
         waitObjectLoad(1000);
         driver.findElement(maps).click();
     }
+
     public void clickCancel() {
         driver.findElement(cancelButton).click();
     }
+
     public static void waitObjectLoad(int timeout) {
         try {
             Thread.sleep(timeout); //forced timeout to wait for the next object element to load
@@ -69,4 +76,14 @@ public class Maps {
             e.printStackTrace();
         }
     }
+
+    public static void keyboardRobot(Robot r) {
+        r = null;
+        try {
+            r = new Robot();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

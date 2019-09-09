@@ -13,4 +13,5 @@ public class NDVIDetails {
     public void clickNDVIOverview() {
         driver.findElement(nDVIOVerview).click();
     }
+
 }
