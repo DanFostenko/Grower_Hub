@@ -108,6 +108,7 @@ public class MyFields {
 
     public void clickSeason() {
         driver.findElement(seasonDropDown).click();
+        driver.findElement(seasonDropDown).click();
     }
 
     public void clickFeedback() {

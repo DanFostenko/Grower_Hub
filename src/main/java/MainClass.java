@@ -32,11 +32,13 @@ public class MainClass {
         MyServices myServices = new MyServices(driver);
 
         //log in - log out
-        /*for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 1; i++) {
             signUpPopUp.clickSignIn();
             signIn.signInWithCreds(email,password);
+            weather.clickWeather();
+
             weather.clickLogout();
-        }*/
+        }
 
         //registration
         signUpPopUp.clickRegister();
@@ -70,7 +72,7 @@ public class MainClass {
         myFieldsDetails.clickMyFieldsFarmView();
         myFields.clickFarm();
         myFields.clickSeason();
-        myFieldsDetails.clickCropOverview();
+        myFieldsDetails.clickFieldOverview();
         myFieldsDetails.typeCrop();
         myFieldsDetails.typeVariety();
         myFieldsDetails.typeFieldName();
