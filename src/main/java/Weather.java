@@ -47,6 +47,7 @@ public class Weather {
     }
 
     private void findWeatherLayers() {
+        elementExists(weatherLayersButton);
         for (int j = 1; j < 31; j++) {  //go through 30 weather tiles of default weather layer
             By weatherTileBy = By.xpath("\"" + weatherTileString + "[" + j + "]\"");
             elementExists(weatherTileBy);

@@ -9,8 +9,8 @@ public class NDVI {
     }
 
     private By nDVI = By.xpath("//*[@title='NDVI']");  //locator for 'NDVI' button
-    private By gotItButton = By.xpath("//span[text()='OK GOT IT']");  //locator for 'Ok Got It' button
-    private By moreDetails = By.xpath("//span[text()='More Details']");  //locator for 'More Details' button
+    private By gotItButton = By.xpath("//span[text()='OK GOT IT']/..");  //locator for 'Ok Got It' button
+    private By moreDetails = By.xpath("//span[text()='More Details']/..");  //locator for 'More Details' button
 
     public void clickNDVI() {
         driver.findElement(nDVI).click();

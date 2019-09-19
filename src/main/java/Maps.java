@@ -18,10 +18,20 @@ public class Maps {
     private By fieldSelectionCheckbox = By.xpath("//input[@type='checkbox']");  //locator for 'Field Selection' checkbox
     private By fieldSelectionNextButton = By.xpath("//button[@label='Next']");  //locator for Field Selection 'Next' button
     private By mapRefinementDateFromPicker = By.xpath("//label[text()='Date from']/..");  //locator for Map Refinement 'Date from' button
-    private By mapRefinementDateToPicker = By.xpath("//label[text()='Date to']/..");  //locator for Map Refinement 'Date to' button
+    private By calendarYearPicker = By.xpath("//h6[text()='2019']");  //locator for 2019 year which calls year picker
+    private By calendarYear2018Picker = By.xpath("//div[text()='2018']");  //locator for current year which calls year picker
     private By calendarOkButton = By.xpath("//span[text()='OK']");  //locator for Map Refinement calendar 'OK' button
+    private By soilMapPreview = By.xpath("//section/div/div/button");  //locator for the first Soil Map preview
+    private By mapRefinementDateToPicker = By.xpath("//label[text()='Date to']/..");  //locator for Map Refinement 'Date to' button
+    private By mapRefinementCreateSoilMapButton = By.xpath("//span[text()='Create Soil Map']/..");  //locator for Map Refinement 'Create Soil Map' button
     private By mapRefinementCreateNewButton = By.xpath("//span[text()='Create new']/..");  //locator for Map Refinement 'Create new' button
     private By mapRefinementNextButton = By.xpath("//span[text()='Next']/..");  //locator for Map Refinement 'Next' button
+    private By mapCreationSoilTexturesList = By.xpath("//div[@class='comp-soil-texture']");  //locator for Soil Textures drop downs
+    private By mapCreationSoilTexturesOption = By.xpath("//div/ul/li[2]");  //locator for the 1st Soil Textures option in drop down
+    private By mapCreationSaveButton = By.xpath("//span[text()='Save']/..");  //locator for 'Save' button
+    private By mapCreationNextButton = By.xpath("//span[text()='Next, Create Drill Map']/..");  //locator for 'Next, Create Drill Map' button
+    private By mapNameField = By.xpath("//label[text()='Map Name']/..");  //locator for 'Map name' field
+    private By mapNameTypeField = By.xpath("//label[text()='Map Name']/../div/input");  //locator for 'Map name' field
 
     public void clickMaps() {
         driver.findElement(maps).click();
@@ -40,11 +50,24 @@ public class Maps {
         driver.findElement(fieldSelectionCheckbox).click();
         driver.findElement(fieldSelectionNextButton).click();
         driver.findElement(mapRefinementDateFromPicker).click();
+        driver.findElement(calendarYearPicker).click();
+        driver.findElement(calendarYear2018Picker).click();
         driver.findElement(calendarOkButton).click();
         waitObjectLoad(1000);
         driver.findElement(mapRefinementDateToPicker).click();
         driver.findElement(calendarOkButton).click();
-        waitObjectLoad(1000);
+        waitObjectLoad(7000);   //pause for generating satellite images
+        driver.findElement(soilMapPreview).click();
+        driver.findElement(mapRefinementCreateSoilMapButton).click();
+        waitObjectLoad(7000);   //pause for generating contour map
+        driver.findElement(mapCreationSoilTexturesList).click();
+        driver.findElement(mapCreationSoilTexturesOption).click();
+        driver.findElement(mapCreationSaveButton).click();
+        waitObjectLoad(7000);   //pause for saving settings
+        driver.findElement(mapCreationSaveButton).click();
+        driver.findElement(mapNameField).click();
+        driver.findElement(mapNameTypeField).sendKeys("Soil Map");
+        driver.findElement(mapCreationSaveButton).click();
         driver.findElement(maps).click();
     }
 
@@ -57,11 +80,24 @@ public class Maps {
         driver.findElement(mapRefinementCreateNewButton).click();
         driver.findElement(mapRefinementNextButton).click();
         driver.findElement(mapRefinementDateFromPicker).click();
+        driver.findElement(calendarYearPicker).click();
+        driver.findElement(calendarYear2018Picker).click();
         driver.findElement(calendarOkButton).click();
         waitObjectLoad(1000);
         driver.findElement(mapRefinementDateToPicker).click();
         driver.findElement(calendarOkButton).click();
-        waitObjectLoad(1000);
+        waitObjectLoad(7000);   //pause for generating satellite images
+        driver.findElement(soilMapPreview).click();
+        driver.findElement(mapRefinementCreateSoilMapButton).click();
+        waitObjectLoad(7000);   //pause for generating contour map
+        driver.findElement(mapCreationSoilTexturesList).click();
+        driver.findElement(mapCreationSoilTexturesOption).click();
+        waitObjectLoad(7000);   //pause for saving settings
+        driver.findElement(mapCreationNextButton).click();
+        driver.findElement(mapNameField).click();
+        driver.findElement(mapNameTypeField).sendKeys("Drill Map");
+        driver.findElement(mapCreationSaveButton).click();
+        //To be continued "Map Creation" step
         driver.findElement(maps).click();
     }
 
