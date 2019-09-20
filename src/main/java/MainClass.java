@@ -84,8 +84,8 @@ public class MainClass {
         myFieldsDetails.clickCropRotation();
         myFieldsDetails.clickImportHistory();
         maps.clickMaps();
-        maps.addSoilMap();
-        maps.addDrillMap();
+        //maps.addSoilMap();
+        //maps.addDrillMap();
         weather.clickWeather();
         weather.clickMoreDetails();
         weatherDetails.clickSprayGuide();
