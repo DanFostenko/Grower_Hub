@@ -18,8 +18,7 @@ public class Weather {
     private By mapLayers = By.xpath("//a[@title='Layers']");  //Locator for map layers
     private By weatherLayersButton = By.xpath("//div[@class='leaflet-control']/button");  //Locator for Weather Layers button
     private By weatherLayer = By.xpath("//div[@id='map-menu-list-grow']/ul/li");  //Locator for Weather Layer in the Weather Layers list
-
-    private By weatherTileString = By.xpath("//img[@class='leaflet-image-layer leaflet-zoom-animated']");  //Locator for weather layers
+    private By weatherTile = By.xpath("//img[@class='leaflet-image-layer leaflet-zoom-animated']");  //Locator for weather layers
     private By infoSprayGuide = By.xpath("//div[text()='Spray Guide']/../../div[3]");  //Locator for Spray Guide on info panel
     private By infoForecast = By.xpath("//div[text()='5 Day Forecast']/../../div[5]");  //Locator for 5 Day Forecast on info panel
     private By weatherPlayerButton = By.xpath("//li[text()='Now']/../../../../div[1]");  //Locator for weather player "+" button
@@ -30,7 +29,7 @@ public class Weather {
         elementExists(keyList);
         elementExists(mapLayers);
         findWeatherLayers();
-        //findAllWeatherLayers();
+        findAllWeatherLayers();
         elementExists(infoSprayGuide);
         elementExists(infoForecast);
         driver.findElement(weatherPlayerButton).click();
@@ -49,7 +48,7 @@ public class Weather {
     private void findWeatherLayers() {
         elementExists(weatherLayersButton);
         for (int j = 1; j < 31; j++) {  //go through 30 weather tiles of default weather layer
-            By weatherTileBy = By.xpath("\"" + weatherTileString + "[" + j + "]\"");
+            By weatherTileBy = By.xpath("\"" + weatherTile + "[" + j + "]\"");
             elementExists(weatherTileBy);
         }
     }
@@ -58,9 +57,10 @@ public class Weather {
         for (int i = 2; i < 12; i++) {  //go through 11 weather layers
             driver.findElement(weatherLayersButton).click();
             By weatherLayerBy = By.xpath("\"" + weatherLayer + "[" + i + "]\"");
-            driver.findElement(weatherLayerBy).click();
+            elementExists(weatherLayerBy);
+            //driver.findElement(weatherLayerBy).click();
             for (int j = 1; j < 31; j++) {  //go through 30 weather tiles of each weather layer
-                By weatherTileBy = By.xpath("\"" + weatherTileString + "[" + j + "]\"");
+                By weatherTileBy = By.xpath("\"" + weatherTile + "[" + j + "]\"");
                 elementExists(weatherTileBy);
             }
         }
