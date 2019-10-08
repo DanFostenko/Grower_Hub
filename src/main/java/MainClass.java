@@ -94,7 +94,7 @@ public class MainClass {
         diseaseManagement.clickMoreDetails();
         diseaseManagementDetails.clickDiseaseOverview();
         nDVI.clickNDVI();
-        nDVI.clickGotIt();
+        //nDVI.clickGotIt();
         nDVI.clickMoreDetails();
         varietySelection.clickVarietySelection();
         varietySelection.clickWizard();

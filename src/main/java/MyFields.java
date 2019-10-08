@@ -13,7 +13,7 @@ public class MyFields {
 
     private By myFieldsButton = By.xpath("//*[@title='My Fields']");  //locator for 'My Fields' button
     private By addNewFieldButton = By.xpath("//button[@aria-label='Add new field']");  //locator for 'Add New Field' button
-    private By importFromGatekeeperButton = By.xpath("//span[text()='Import from Gatekeeper']");  //locator for 'Import from Gatekeeper' button
+    private By importFromGatekeeperButton = By.xpath("//span[text()='Import from FMS']");  //locator for 'Import from FMS' button
     private By nextButton = By.xpath("//span[text()='Next']/..");  //locator for 'Next' button
     private By xButton = By.xpath("//div[text()='Add Fields']/following-sibling::*");  //locator for 'X' (Close) button
     private By farmDropDown = By.xpath("//div[@class='farm-selection-comp']");  //locator for 'Farm' drop-down
