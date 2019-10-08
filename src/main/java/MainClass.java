@@ -35,9 +35,9 @@ public class MainClass {
         /*for (int i = 0; i < 1; i++) {
             signUpPopUp.clickSignIn();
             signIn.signInWithCreds(email,password);
-            maps.clickMaps();
+            *//*maps.clickMaps();
             maps.addSoilMap();
-            maps.addDrillMap();
+            maps.addDrillMap();*//*
             weather.clickLogout();
         }*/
 
