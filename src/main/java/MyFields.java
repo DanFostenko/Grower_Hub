@@ -15,7 +15,7 @@ public class MyFields {
     private By addNewFieldButton = By.xpath("//button[@aria-label='Add new field']");  //locator for 'Add New Field' button
     private By importFromGatekeeperButton = By.xpath("//span[text()='Import from Gatekeeper']");  //locator for 'Import from Gatekeeper' button
     private By nextButton = By.xpath("//span[text()='Next']/..");  //locator for 'Next' button
-    private By xButton = By.xpath("//div[text()='Add New Field']/following-sibling::*");  //locator for 'X' (Close) button
+    private By xButton = By.xpath("//div[text()='Add Fields']/following-sibling::*");  //locator for 'X' (Close) button
     private By farmDropDown = By.xpath("//div[@class='farm-selection-comp']");  //locator for 'Farm' drop-down
     private By seasonDropDown = By.xpath("//div[@class='growing-season-selection-comp']");  //locator for 'Season' drop-down
     private By feedbackButton = By.xpath("//span[text()='Feedback']/parent::button");  //locator for 'Feedback' button
