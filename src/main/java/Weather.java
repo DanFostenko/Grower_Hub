@@ -68,6 +68,7 @@ public class Weather {
 
     public void clickLogout() {
         driver.findElement(userPicButton).click();
+        Maps.waitObjectLoad(500);  //forced timeout to render menu
         driver.findElement(logoutButton).click();
     }
 

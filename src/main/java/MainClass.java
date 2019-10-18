@@ -12,7 +12,7 @@ public class MainClass {
 
         String site = "test.growerhub.io";  //dev.growerhub.io //growerhub.io
         String httpcreds = "syngenta:c0j4ZvP8KvIn";
-        String email = "x36607@nwytg.net";
+        String email = "x36607@nwytg.net";  //String email = "bela.tylin@lnsilver.com";
         String password = "Eamw5768";
         driver.get("https://"+httpcreds+"@"+site);
 
@@ -32,14 +32,14 @@ public class MainClass {
         MyServices myServices = new MyServices(driver);
 
         //log in - log out
-        /*for (int i = 0; i < 1; i++) {
-            signUpPopUp.clickSignIn();
+        for (int i = 0; i < 1; i++) {
+            /*signUpPopUp.clickSignIn();
             signIn.signInWithCreds(email,password);
-            *//*maps.clickMaps();
+            maps.clickMaps();
             maps.addSoilMap();
-            maps.addDrillMap();*//*
-            weather.clickLogout();
-        }*/
+            maps.addDrillMap();
+            weather.clickLogout();*/
+        }
 
         //registration
         signUpPopUp.clickRegister();
@@ -94,11 +94,12 @@ public class MainClass {
         diseaseManagement.clickMoreDetails();
         diseaseManagementDetails.clickDiseaseOverview();
         nDVI.clickNDVI();
-        //nDVI.clickGotIt();
+        nDVI.clickGotIt();
         nDVI.clickMoreDetails();
         varietySelection.clickVarietySelection();
         varietySelection.clickWizard();
         varietySelection.clickVarietyAZ();
+        varietySelection.clickWriteReview();
         myServices.clickMyServices();
         myServices.clickCategories();
         driver.quit();  //end work of driver

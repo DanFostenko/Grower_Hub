@@ -71,7 +71,6 @@ public class Register {
         switchToActiveTab();
         driver.close();
         switchToActiveTab();
-
         return email;
     }
 
