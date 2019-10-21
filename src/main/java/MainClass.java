@@ -32,14 +32,15 @@ public class MainClass {
         MyServices myServices = new MyServices(driver);
 
         //log in - log out
-        for (int i = 0; i < 1; i++) {
-            /*signUpPopUp.clickSignIn();
+        /*for (int i = 0; i < 1; i++) {
+            signUpPopUp.clickSignIn();
             signIn.signInWithCreds(email,password);
+            weather.clickCookieOK();
             maps.clickMaps();
             maps.addSoilMap();
             maps.addDrillMap();
-            weather.clickLogout();*/
-        }
+            weather.clickLogout();
+        }*/
 
         //registration
         signUpPopUp.clickRegister();
