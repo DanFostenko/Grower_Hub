@@ -23,13 +23,15 @@ public class WeatherDetails {
     private By data1Y = By.xpath("//span[text()='1Y']/..");  //Locator for 1Y chart input parameter
     private By dataTemperature = By.xpath("//div[text()='Temperature']");  //Locator for 'Temperature' chart input parameter
     private By dataPrecipitation = By.xpath("//div[text()='Precipitation (mm)']");  //Locator for 'Precipitation (mm)' chart input parameter
+    private By dataCumulativePrecipitation = By.xpath("//div[text()='Cumulative Precipitation']");  //Locator for 'Cumulative Precipitation' chart input parameter
     private By dataHumidity = By.xpath("//div[text()='Humidity']");  //Locator for 'Humidity' chart input parameter
     private By dataWind = By.xpath("//div[text()='Wind']");  //Locator for 'Wind' chart input parameter
+    private By dataGrowingDegreeDays = By.xpath("//div[text()='Growing Degree Days']");  //Locator for 'Growing Degree Days' chart input parameter
+    private By data2019 = By.xpath("//div[text()='2019']");  //Locator for 2019 chart input parameter
     private By data2018 = By.xpath("//div[text()='2018']");  //Locator for 2018 chart input parameter
     private By data2017 = By.xpath("//div[text()='2018']");  //Locator for 2017 chart input parameter
     private By data2016 = By.xpath("//div[text()='2018']");  //Locator for 2016 chart input parameter
     private By data2015 = By.xpath("//div[text()='2018']");  //Locator for 2015 chart input parameter
-    private By data2014 = By.xpath("//div[text()='2018']");  //Locator for 2014 chart input parameter
 
     public void clickSprayGuide() {
         driver.findElement(sprayGuide).click();
@@ -47,15 +49,16 @@ public class WeatherDetails {
         driver.findElement(data1Y).click();
         driver.findElement(dataTemperature).click();
         driver.findElement(dataPrecipitation).click();
+        driver.findElement(dataCumulativePrecipitation).click();
         driver.findElement(dataHumidity).click();
         driver.findElement(dataWind).click();
+        driver.findElement(dataGrowingDegreeDays).click();
+        driver.findElement(data2019).click();
         driver.findElement(data2018).click();
         driver.findElement(data2017).click();
         driver.findElement(data2016).click();
         driver.findElement(data2017).click();
         driver.findElement(data2015).click();
-        driver.findElement(data2015).click();
-        driver.findElement(data2014).click();
     }
 
     public boolean elementExists(By xpath) {

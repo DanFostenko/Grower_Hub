@@ -80,7 +80,7 @@ public class Register {
         driver.findElement(addressField).sendKeys(address);
         driver.findElement(cityField).sendKeys(city);
         driver.findElement(countryDropDown).click();
-        driver.findElement(countryDropDown).click();    //dropdown opens from the 2nd try
+        Maps.waitObjectLoad(500);  //forced timeout to render dropdown
         driver.findElement(countryElement).click();
         driver.findElement(postcodeField).sendKeys(postcode);
         driver.findElement(continueButton).click();
