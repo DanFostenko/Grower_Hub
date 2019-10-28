@@ -12,7 +12,7 @@ public class MainClass {
 
         String site = "test.growerhub.io";  //dev.growerhub.io //growerhub.io
         String httpcreds = "syngenta:c0j4ZvP8KvIn";
-        String email = "x36607@nwytg.net";
+        String email = "aizen.kenya@niickel.us";
         String password = "Eamw5768";
         driver.get("https://"+httpcreds+"@"+site);
 
@@ -32,15 +32,16 @@ public class MainClass {
         MyServices myServices = new MyServices(driver);
 
         //log in - log out
-        /*for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 1; i++) {
             signUpPopUp.clickSignIn();
             signIn.signInWithCreds(email,password);
             weather.clickCookieOK();
-            maps.clickMaps();
-            maps.addSoilMap();
-            maps.addDrillMap();
+            myFields.clickMyFields();
+            myFields.clickMoreDetails();
+            myFieldsDetails.clickOperations();
+            myFieldsDetails.addOperation();
             weather.clickLogout();
-        }*/
+        }
 
         //registration
         signUpPopUp.clickRegister();
@@ -82,6 +83,7 @@ public class MainClass {
         //myFieldsDetails.typeDrillDate();
         myFieldsDetails.clickFarmDetails();
         myFieldsDetails.clickOperations();
+        myFieldsDetails.addOperation();
         myFieldsDetails.clickCropRotation();
         myFieldsDetails.clickImportHistory();
         maps.clickMaps();

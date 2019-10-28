@@ -94,7 +94,7 @@ public class Register {
     }
 
     public Register finishRegistration() {
-        Maps.waitObjectLoad(2000);  //forced timeout to process request on Auth0
+        Maps.waitObjectLoad(2000);  //forced timeout to process request to Auth0
         //driver.findElement(growingSeasonDropDown).click();
         //driver.findElement(growingSeasonOption).click();
         driver.findElement(xButton).click();

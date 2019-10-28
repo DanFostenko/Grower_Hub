@@ -34,7 +34,7 @@ public class MyFieldsDetails {
     private By soilTypeEdit = By.xpath("//tbody/tr/td[4]/div/div/div/div/div");  //locator for 'Soil Type' edit
     private By drillDate = By.xpath("//tbody/tr/td[6]/div");  //locator for 'Drill Date' record
     private By drillDateEdit = By.xpath("//tbody/tr/td[6]/div/div/div/div");  //locator for 'Drill Date' edit
-    private By drillDateOKButton = By.xpath("//span[text()='OK']");  //locator for 'Drill Date' calendar 'OK' button
+    private By oKButton = By.xpath("//span[text()='OK']");  //locator for 'Drill Date' or 'Operation details' calendar 'OK' button
     private By tableViewToggle = By.xpath("//span[text()='Table View']/..");  //locator for 'Table View' toggle
     private By gridViewToggle = By.xpath("//span[text()='Grid View']/..");  //locator for 'Grid View' toggle
     private By selectorRadioButton = By.xpath("//span[text()='Table View']/../../../div[1]");  //locator for selector radio button
@@ -50,7 +50,12 @@ public class MyFieldsDetails {
     private By listViewToggle = By.xpath("//span[text()='List View']/..");  //locator for 'List View' toggle
     private By boardViewToggle = By.xpath("//span[text()='Board View']/..");  //locator for 'Board View' toggle
     private By groupByDropDown = By.xpath("//span[text()='Group by']");  //locator for "Group by" dropdown menu
-    private By addOperationButton = By.xpath("//span[text()='List View']/../../../../../div[4]");  //locator for "+" add operation button
+    private By addButton = By.xpath("//div[@class='comp-operations-tabs']/div[last()]/button");  //universal locator for "+" add operation button
+    private By operationDate = By.xpath("//div[@class='comp-clickable-select']");  //locator for "Operation Date *" field
+    private By operationDateEdit = By.xpath("//div[@class='comp-clickable-select']/div[text()='Unknown']/div");  //locator for "Operation Date *" edit pic
+    private By locationCheckbox = By.xpath("//input[@type='checkbox'][last()]");  //locator for location field checkbox
+    private By addOperationButton = By.xpath("//span[text()='Add Operation']/..");  //locator for "Add Operation" button
+
     private By plantingFilter = By.xpath("//span[text()='Planting']");  //locator for "Planting" filter button
     private By cropProtectionFilter = By.xpath("//span[text()='Crop protection']");  //locator for "Crop Protection" filter button
     private By nutritionFilter = By.xpath("//span[text()='Nutrition']");  //locator for "Nutrition" filter button
@@ -95,7 +100,19 @@ public class MyFieldsDetails {
         elementExists(nutritionFilter);
         elementExists(harvestFilter);
         elementExists(groupByDropDown);
-        elementExists(addOperationButton);
+        elementExists(addButton);
+    }
+
+    public void addOperation() {
+        driver.findElement(operations).click();
+        driver.findElement(addButton).click();
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(operationDate)).build().perform();
+        driver.findElement(operationDateEdit).click();
+        driver.findElement(oKButton).click();
+        Maps.waitObjectLoad(500);  //forced timeout to close the calendar
+        driver.findElement(locationCheckbox).click();
+        driver.findElement(addOperationButton).click();
     }
 
     public void clickCropRotation() {
@@ -167,9 +184,9 @@ public class MyFieldsDetails {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(drillDate)).build().perform();
         driver.findElement(drillDateEdit).click();
-        Maps.waitObjectLoad(1000);  //forced timeout to close the calendar
-        driver.findElement(drillDateOKButton).click();
-        Maps.waitObjectLoad(1000);  //forced timeout to close the calendar
+        Maps.waitObjectLoad(500);  //forced timeout to close the calendar
+        driver.findElement(oKButton).click();
+        Maps.waitObjectLoad(500);  //forced timeout to close the calendar
     }
 
     public boolean elementExists(By xpath) {
