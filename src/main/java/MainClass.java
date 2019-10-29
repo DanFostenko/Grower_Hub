@@ -39,7 +39,10 @@ public class MainClass {
             myFields.clickMyFields();
             myFields.clickMoreDetails();
             myFieldsDetails.clickOperations();
-            myFieldsDetails.addOperation();
+            myFieldsDetails.addOperation("Planting","To Do");
+            myFieldsDetails.addOperation("Crop Protection", "In Progress");
+            myFieldsDetails.addOperation("Nutrition", "Blocked");
+            myFieldsDetails.addOperation("Harvest", "Completed");
             weather.clickLogout();
         }
 
@@ -83,7 +86,10 @@ public class MainClass {
         //myFieldsDetails.typeDrillDate();
         myFieldsDetails.clickFarmDetails();
         myFieldsDetails.clickOperations();
-        myFieldsDetails.addOperation();
+        myFieldsDetails.addOperation("Planting","To Do");
+        myFieldsDetails.addOperation("Crop Protection", "In Progress");
+        myFieldsDetails.addOperation("Nutrition", "Blocked");
+        myFieldsDetails.addOperation("Harvest", "Completed");
         myFieldsDetails.clickCropRotation();
         myFieldsDetails.clickImportHistory();
         maps.clickMaps();

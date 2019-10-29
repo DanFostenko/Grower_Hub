@@ -51,11 +51,12 @@ public class MyFieldsDetails {
     private By boardViewToggle = By.xpath("//span[text()='Board View']/..");  //locator for 'Board View' toggle
     private By groupByDropDown = By.xpath("//span[text()='Group by']");  //locator for "Group by" dropdown menu
     private By addButton = By.xpath("//div[@class='comp-operations-tabs']/div[last()]/button");  //universal locator for "+" add operation button
+    private By operationTypeDropdown = By.xpath("//h6[text()='Operation Type']/../../div[2]/div/div/div");  //locator for "Operation Type" dropdown
     private By operationDate = By.xpath("//div[@class='comp-clickable-select']");  //locator for "Operation Date *" field
     private By operationDateEdit = By.xpath("//div[@class='comp-clickable-select']/div[text()='Unknown']/div");  //locator for "Operation Date *" edit pic
+    private By operationStatusDropdown = By.xpath("//h6[text()='Status']/../../div[2]/div/div/div");  //locator for "Status" dropdown
     private By locationCheckbox = By.xpath("//input[@type='checkbox'][last()]");  //locator for location field checkbox
     private By addOperationButton = By.xpath("//span[text()='Add Operation']/..");  //locator for "Add Operation" button
-
     private By plantingFilter = By.xpath("//span[text()='Planting']");  //locator for "Planting" filter button
     private By cropProtectionFilter = By.xpath("//span[text()='Crop protection']");  //locator for "Crop Protection" filter button
     private By nutritionFilter = By.xpath("//span[text()='Nutrition']");  //locator for "Nutrition" filter button
@@ -103,16 +104,26 @@ public class MyFieldsDetails {
         elementExists(addButton);
     }
 
-    public void addOperation() {
+    public void addOperation(String operationTypeOption, String operationStatusOption) {
         driver.findElement(operations).click();
         driver.findElement(addButton).click();
+        driver.findElement(operationTypeDropdown).click();
+        Maps.waitObjectLoad(500);   //force timeout to append value
+        By operationTypeOptionBy = By.xpath("//li[text()=\"" + operationTypeOption + "\"]");
+        driver.findElement(operationTypeOptionBy).click();
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(operationDate)).build().perform();
         driver.findElement(operationDateEdit).click();
         driver.findElement(oKButton).click();
         Maps.waitObjectLoad(500);  //forced timeout to close the calendar
+        driver.findElement(operationStatusDropdown).click();
+        Maps.waitObjectLoad(500);   //force timeout to append value
+        By operationStatusOptionBy = By.xpath("//li[text()=\"" + operationStatusOption + "\"]");
+        driver.findElement(operationStatusOptionBy).click();
+        Maps.waitObjectLoad(500);   //force timeout to append value
         driver.findElement(locationCheckbox).click();
         driver.findElement(addOperationButton).click();
+        Maps.waitObjectLoad(5000);   //force timeout to save value
     }
 
     public void clickCropRotation() {
