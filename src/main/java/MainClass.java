@@ -13,23 +13,23 @@ public class MainClass {
         String site = "test.growerhub.io";  //dev.growerhub.io //growerhub.io
         String httpcreds = "syngenta:c0j4ZvP8KvIn";
         String email = "aizen.kenya@niickel.us";
-        String password = "Eamw5768";
+        String password = "Eamw5768*";
         driver.get("https://"+httpcreds+"@"+site);
 
-        SignUpPopUp signUpPopUp = new SignUpPopUp(driver);
-        SignIn signIn = new SignIn(driver);
-        Register register = new Register(driver);
-        Weather weather = new Weather(driver);
-        MyFields myFields = new MyFields(driver);
-        MyFieldsDetails myFieldsDetails = new MyFieldsDetails(driver);
-        WeatherDetails weatherDetails = new WeatherDetails(driver);
         DiseaseManagement diseaseManagement = new DiseaseManagement(driver);
         DiseaseManagementDetails diseaseManagementDetails = new DiseaseManagementDetails(driver);
-        NDVI nDVI = new NDVI(driver);
         Maps maps = new Maps(driver);
-        NDVIDetails nDVIDetails = new NDVIDetails(driver);
-        VarietySelection varietySelection = new VarietySelection(driver);
+        MyFields myFields = new MyFields(driver);
+        MyFieldsDetails myFieldsDetails = new MyFieldsDetails(driver);
         MyServices myServices = new MyServices(driver);
+        NDVI nDVI = new NDVI(driver);
+        NDVIDetails nDVIDetails = new NDVIDetails(driver);
+        Register register = new Register(driver);
+        SignIn signIn = new SignIn(driver);
+        SignUpPopUp signUpPopUp = new SignUpPopUp(driver);
+        VarietySelection varietySelection = new VarietySelection(driver);
+        Weather weather = new Weather(driver);
+        WeatherDetails weatherDetails = new WeatherDetails(driver);
 
         //log in - log out
         /*for (int i = 0; i < 100; i++) {
@@ -43,7 +43,7 @@ public class MainClass {
         signUpPopUp.clickRegister();
         email = register.fillInMyProfile("Bogdan Fostenko","441234567898",password);
         signIn.signInWithCreds(email,password);
-        register.fillInMyFarm("Bogdan's Second Farm","CPC4, Capital Park, Fulbourn, Cambridge CB21 5XE","Cambridge","United Kingdom","CB21 5XE");
+        register.fillInMyFarm("Bogdan's Farm","CPC4, Capital Park, Fulbourn, Cambridge CB21 5XE","Cambridge","United Kingdom","CB21 5XE");
         register.fillInTermsOfService();
         register.finishRegistration();
         weather.clickCookieOK();
@@ -58,13 +58,6 @@ public class MainClass {
 
         //go through the views
         myFields.clickMyFields();
-        myFields.clickAddNewField();
-        myFields.clickFarm();
-        myFields.clickAddNewFarm();
-        register.fillInMyFarm("La ferme de Bogdan","5 Rue Aristide Maillol, 18000 Bourges, France","Bourges","France","18000");
-        myFields.clickClose();
-        myFields.clickFarm();
-        myFields.clickDefaultFarm();
         myFields.clickSeason();
         myFields.clickFeedback();
         myFields.clickCancelFeedback();
@@ -101,7 +94,7 @@ public class MainClass {
         diseaseManagement.clickMoreDetails();
         diseaseManagementDetails.clickDiseaseOverview();
         nDVI.clickNDVI();
-        //nDVI.clickGotIt();
+        nDVI.clickGotIt();
         nDVI.clickMoreDetails();
         varietySelection.clickVarietySelection();
         varietySelection.clickWizard();
@@ -109,6 +102,14 @@ public class MainClass {
         varietySelection.clickWriteReview();
         myServices.clickMyServices();
         myServices.clickCategories();
+        myFields.clickMyFields();
+        myFields.clickAddNewField();
+        myFields.clickFarm();
+        myFields.clickAddNewFarm();
+        register.fillInMyFarm("La ferme de Bogdan","5 Rue Aristide Maillol, 18000 Bourges, France","Bourges","France","18000");
+        myFields.clickClose();
+        myFields.clickFarm();
+        myFields.clickDefaultFarm();
         driver.quit();  //end work of driver
     }
 
