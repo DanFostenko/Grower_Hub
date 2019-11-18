@@ -23,7 +23,7 @@ public class Maps {
     private By fieldSelectionNextButton = By.xpath("//button[@label='Next']");  //locator for Field Selection 'Next' button
     private By mapRefinementDateFromPicker = By.xpath("//label[text()='Date from']/..");  //locator for Map Refinement 'Date from' button
     private By calendarYearPicker = By.xpath("//h6[text()='2019']");  //locator for 2019 year which calls year picker
-    private By calendarYear2018Picker = By.xpath("//div[text()='2018']");  //locator for current year which calls year picker
+    private By calendarYear2019Picker = By.xpath("//div[text()='2019']");  //locator for current year which calls year picker
     private By calendarOkButton = By.xpath("//span[text()='OK']");  //locator for Map Refinement calendar 'OK' button
     private By soilMapPreview = By.xpath("//section/div/div/button");  //locator for the first Soil Map preview
     private By mapRefinementDateToPicker = By.xpath("//label[text()='Date to']/..");  //locator for Map Refinement 'Date to' button
@@ -65,7 +65,7 @@ public class Maps {
         driver.findElement(fieldSelectionNextButton).click();
         driver.findElement(mapRefinementDateFromPicker).click();
         driver.findElement(calendarYearPicker).click();
-        driver.findElement(calendarYear2018Picker).click();
+        driver.findElement(calendarYear2019Picker).click();
         driver.findElement(calendarOkButton).click();
         waitObjectLoad(1000);   //pause for closing modal window
         driver.findElement(mapRefinementDateToPicker).click();
@@ -92,7 +92,7 @@ public class Maps {
         driver.findElement(mapRefinementNextButton).click();
         driver.findElement(mapRefinementDateFromPicker).click();
         driver.findElement(calendarYearPicker).click();
-        driver.findElement(calendarYear2018Picker).click();
+        driver.findElement(calendarYear2019Picker).click();
         driver.findElement(calendarOkButton).click();
         waitObjectLoad(1000);
         driver.findElement(mapRefinementDateToPicker).click();

@@ -17,6 +17,8 @@ public class MyFields {
     private By nextButton = By.xpath("//span[text()='Next']/..");  //locator for 'Next' button
     private By xButton = By.xpath("//div[text()='Add Fields']/following-sibling::*");  //locator for 'X' (Close) button
     private By farmDropDown = By.xpath("//div[@class='farm-selection-comp']");  //locator for 'Farm' drop-down
+    private By addNewFarmOption = By.xpath("//span[text()='Add a New Farm']/../..");  //locator for 'Add a New Farm' option in 'Farm' drop-down
+    private By defaultFarmOption = By.xpath("//div[@class='farm-selection-comp']/div/div/ul/div[1]");  //locator for first option in 'Farm' drop-down
     private By seasonDropDown = By.xpath("//div[@class='growing-season-selection-comp']");  //locator for 'Season' drop-down
     private By feedbackButton = By.xpath("//span[text()='Feedback']/parent::button");  //locator for 'Feedback' button
     private By cancelFeedbackButton = By.xpath("//span[text()='Cancel']/parent::button");  //locator for 'Cancel' button
@@ -43,6 +45,10 @@ public class MyFields {
         driver.findElement(importFromGatekeeperButton).click();
         driver.findElement(nextButton).click();
         driver.findElement(nextButton).click();
+        clickClose();
+    }
+
+    public void clickClose() {
         driver.findElement(xButton).click();
     }
 
@@ -106,6 +112,14 @@ public class MyFields {
 
     public void clickFarm() {
         driver.findElement(farmDropDown).click();
+    }
+
+    public void clickAddNewFarm() {
+        driver.findElement(addNewFarmOption).click();
+    }
+
+    public void clickDefaultFarm() {
+        driver.findElement(defaultFarmOption).click();
     }
 
     public void clickSeason() {

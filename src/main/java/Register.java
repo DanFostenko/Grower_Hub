@@ -22,7 +22,7 @@ public class Register {
     private By telephoneField = By.xpath(".//*[@placeholder='Telephone']");
     private By emailField = By.xpath(".//*[@placeholder='Email Address']");
     private By passwordField = By.xpath(".//*[@placeholder='Password']");
-    private By continueButton = By.xpath("//button/span[text()='Continue']");
+    private By continueButton = By.xpath("//button/span[text()='Continue']/..");
 
     //Elements on Sign Up -> 2. My Farm step
     private By farmNameField = By.xpath(".//*[@placeholder='Farm Name']");
@@ -83,6 +83,7 @@ public class Register {
         Maps.waitObjectLoad(500);  //forced timeout to render dropdown
         driver.findElement(countryElement).click();
         driver.findElement(postcodeField).sendKeys(postcode);
+        Maps.waitObjectLoad(500);   //forced timeout to focus off the field
         driver.findElement(continueButton).click();
         return new Register(driver);
     }

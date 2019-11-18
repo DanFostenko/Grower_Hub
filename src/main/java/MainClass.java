@@ -32,25 +32,18 @@ public class MainClass {
         MyServices myServices = new MyServices(driver);
 
         //log in - log out
-        for (int i = 0; i < 1; i++) {
+        /*for (int i = 0; i < 100; i++) {
             signUpPopUp.clickSignIn();
             signIn.signInWithCreds(email,password);
             weather.clickCookieOK();
-            myFields.clickMyFields();
-            myFields.clickMoreDetails();
-            myFieldsDetails.clickOperations();
-            myFieldsDetails.addOperation("Planting","To Do");
-            myFieldsDetails.addOperation("Crop Protection", "In Progress");
-            myFieldsDetails.addOperation("Nutrition", "Blocked");
-            myFieldsDetails.addOperation("Harvest", "Completed");
             weather.clickLogout();
-        }
+        }*/
 
         //registration
         signUpPopUp.clickRegister();
         email = register.fillInMyProfile("Bogdan Fostenko","441234567898",password);
         signIn.signInWithCreds(email,password);
-        register.fillInMyFarm("Bogdan's Farm","CPC4, Capital Park, Fulbourn, Cambridge CB21 5XE","Cambridge","United Kingdom","CB21 5XE");
+        register.fillInMyFarm("Bogdan's Second Farm","CPC4, Capital Park, Fulbourn, Cambridge CB21 5XE","Cambridge","United Kingdom","CB21 5XE");
         register.fillInTermsOfService();
         register.finishRegistration();
         weather.clickCookieOK();
@@ -67,6 +60,11 @@ public class MainClass {
         myFields.clickMyFields();
         myFields.clickAddNewField();
         myFields.clickFarm();
+        myFields.clickAddNewFarm();
+        register.fillInMyFarm("La ferme de Bogdan","5 Rue Aristide Maillol, 18000 Bourges, France","Bourges","France","18000");
+        myFields.clickClose();
+        myFields.clickFarm();
+        myFields.clickDefaultFarm();
         myFields.clickSeason();
         myFields.clickFeedback();
         myFields.clickCancelFeedback();
@@ -103,7 +101,7 @@ public class MainClass {
         diseaseManagement.clickMoreDetails();
         diseaseManagementDetails.clickDiseaseOverview();
         nDVI.clickNDVI();
-        nDVI.clickGotIt();
+        //nDVI.clickGotIt();
         nDVI.clickMoreDetails();
         varietySelection.clickVarietySelection();
         varietySelection.clickWizard();
