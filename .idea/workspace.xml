@@ -16,12 +16,9 @@
       <change afterPath="$PROJECT_DIR$/../run-off-test/src/main/java/SoilTexture.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../run-off-test/src/main/java/Survey.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Maps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyFields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyFields.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VarietySelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VarietySelection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/chromedriver.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MainClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Maps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Maps.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VarietySelection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VarietySelection.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
