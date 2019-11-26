@@ -70,7 +70,7 @@ public class Maps {
         waitObjectLoad(1000);   //pause for closing modal window
         driver.findElement(mapRefinementDateToPicker).click();
         driver.findElement(calendarOkButton).click();
-        waitObjectLoad(3000);   //pause for generating satellite images
+        waitObjectLoad(4000);   //pause for generating satellite images
         driver.findElement(soilMapPreview).click();
         driver.findElement(mapRefinementCreateSoilMapButton).click();
         selectSoilTextures();
@@ -97,7 +97,7 @@ public class Maps {
         waitObjectLoad(1000);
         driver.findElement(mapRefinementDateToPicker).click();
         driver.findElement(calendarOkButton).click();
-        waitObjectLoad(3000);   //pause for generating satellite images
+        waitObjectLoad(4000);   //pause for generating satellite images
         driver.findElement(soilMapPreview).click();
         driver.findElement(mapRefinementCreateSoilMapButton).click();
         //waitObjectLoad(7000);   //pause for generating contour map
@@ -149,4 +149,5 @@ public class Maps {
             e.printStackTrace();
         }
     }
+
 }

@@ -21,6 +21,7 @@ public class MyFields {
     private By defaultFarmOption = By.xpath("//div[@class='farm-selection-comp']/div/div/ul/div[1]");  //locator for first option in 'Farm' drop-down
     private By seasonDropDown = By.xpath("//div[@class='growing-season-selection-comp']");  //locator for 'Season' drop-down
     private By feedbackButton = By.xpath("//span[text()='Feedback']/parent::button");  //locator for 'Feedback' button
+    private By sendFeedbackButton = By.xpath("//span[text()='Send']/parent::button");  //locator for 'Send' button
     private By cancelFeedbackButton = By.xpath("//span[text()='Cancel']/parent::button");  //locator for 'Cancel' button
     private By bellButton = By.xpath("//span[text()='Feedback']/parent::button/following-sibling::div[1]");  //locator for 'Bell' button
     private By moreDetails = By.xpath("//span[text()='More Details']");  //locator for 'More Details' button
@@ -129,6 +130,7 @@ public class MyFields {
 
     public void clickFeedback() {
         driver.findElement(feedbackButton).click();
+        elementExists(sendFeedbackButton);
     }
 
     public void clickCancelFeedback() {

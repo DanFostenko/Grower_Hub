@@ -12,8 +12,8 @@ public class MainClass {
 
         String site = "test.growerhub.io";  //dev.growerhub.io //growerhub.io
         String httpcreds = "syngenta:c0j4ZvP8KvIn";
-        String email = "aizen.kenya@niickel.us";
-        String password = "Eamw5768*";
+        String email = "Bogdan.Fostenko@syngenta.com";
+        String password = "Eamw5768";
         driver.get("https://"+httpcreds+"@"+site);
 
         DiseaseManagement diseaseManagement = new DiseaseManagement(driver);
@@ -37,6 +37,7 @@ public class MainClass {
             signIn.signInWithCreds(email,password);
             weather.clickCookieOK();
             weather.clickLogout();
+            System.out.println("Log in #: " + i);
         }*/
 
         //registration
@@ -86,10 +87,10 @@ public class MainClass {
         maps.clickMaps();
         maps.addSoilMap();
         maps.addDrillMap();
-        weather.clickWeather();
+        /*weather.clickWeather();
         weather.clickMoreDetails();
         weatherDetails.clickSprayGuide();
-        weatherDetails.clickWeatherAnalysis();
+        weatherDetails.clickWeatherAnalysis();*/
         diseaseManagement.clickDiseaseManagement();
         diseaseManagement.clickMoreDetails();
         diseaseManagementDetails.clickDiseaseOverview();
