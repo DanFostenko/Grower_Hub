@@ -1,6 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.Calendar;
 
 public class Maps {
@@ -148,6 +150,20 @@ public class Maps {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void refreshPage() {
+        try {
+            Robot r = null;
+            try {
+                r = new Robot();
+            } catch (AWTException e) {
+                e.printStackTrace();
+            }
+            r.keyPress(KeyEvent.VK_CONTROL);
+            r.keyPress(KeyEvent.VK_F5);  r.keyRelease(KeyEvent.VK_F5);
+            r.keyRelease(KeyEvent.VK_CONTROL);
+        } finally{};
     }
 
 }

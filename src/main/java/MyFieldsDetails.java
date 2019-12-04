@@ -74,6 +74,8 @@ public class MyFieldsDetails {
     }
 
     public void clickFieldOverview() {
+        Maps.refreshPage(); //refresh the page to load new field
+        driver.findElement(tableViewToggle);
         driver.findElement(fieldOverview).click();
         driver.findElement(selectorRadioButton).click();    //check radio
         driver.findElement(selectorRadioButton).click();    //uncheck radio
