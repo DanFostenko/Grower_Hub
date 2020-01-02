@@ -33,7 +33,7 @@ public class MainClass {
         WeatherDetails weatherDetails = new WeatherDetails(driver);
 
         //log in-out
-        for (int i = 1; i < 1; i++) {
+        for (int i = 1; i < 100; i++) {
             signUpPopUp.clickSignIn();
             signIn.signInWithCreds(email,myPassword);
             weather.clickLogout();
