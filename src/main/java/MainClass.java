@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 public class MainClass {
     static WebDriver driver;
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\DanFo\\IdeaProjects\\growerhubtest\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\b.fostenko\\IdeaProjects\\growerhubtest\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS); //waiting for element to appear
         driver.manage().window().maximize(); //maximize browser window
